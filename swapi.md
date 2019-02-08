@@ -14,14 +14,14 @@ Primero cargaremos las librerías necesarias
 library(tidyverse) #Estructuración de datos
 ```
 
-    ## -- Attaching packages --------------------- tidyverse 1.2.1 --
+    ## -- Attaching packages --------------------------------- tidyverse 1.2.1 --
 
     ## v ggplot2 3.1.0     v purrr   0.2.5
     ## v tibble  1.4.2     v dplyr   0.7.8
     ## v tidyr   0.8.1     v stringr 1.3.1
     ## v readr   1.1.1     v forcats 0.3.0
 
-    ## -- Conflicts ------------------------ tidyverse_conflicts() --
+    ## -- Conflicts ------------------------------------ tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -169,10 +169,10 @@ Muy bien todo salió como esperábamos, ahora crearemos una función para hacer 
 
       #Creamos la url
           url <- str_interp("https://swapi.co/api/${resource}/${i}/?format=json")
-      #Vemos el estatus de la conexion
+      #Vemos el estatus de la conexión
           resp <- GET(url)$status_code
 
-        if(resp == 404) next #En caso de que dicha conexion nos regrese un estatus 404 pasaremos a la siguiente solicitud
+        if(resp == 404) next #En caso de que dicha conexión nos regrese un estatus 404 pasaremos a la siguiente solicitud
 
       # Guardamos en la lista
         data[[i]] <- fromJSON(file=url)
@@ -268,7 +268,7 @@ planeta_df <- do.call(rbind,planeta)  %>%  data.frame()
 especie_df <- do.call(rbind,especie) %>%  data.frame()
 ```
 
-Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las peliculas en las que aparece, sin embargo es mejor solo saber el numero de la pelicula y no la url, de manera que sea mas legible.
+Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.
 
 ``` r
 personajes_df$films[[1]]
@@ -458,9 +458,13 @@ planeta_ti %>% head()
     ## #   residents <chr>, films <chr>, created <chr>, edited <chr>, url <chr>,
     ## #   id_planeta <int>
 
-Concluciones
+Conclusiones
 ------------
 
 Sin duda alguna la estructuración de una base de datos en la ciencia de datos es lo menos "glamuroso" sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.
 
 Te invito a que por tu cuenta hagas la solicitud a *films*, *starships*, *vehicles*. De tal manera que veas lo fácil que es!
+
+Fuentes:
+
+<https://www.tutorialspoint.com/r/r_json_files.htm> <https://github.com/Ironholds/rwars>

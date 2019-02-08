@@ -102,10 +102,10 @@ Muy bien todo salió como esperábamos, ahora crearemos una función para hacer 
 
       #Creamos la url
           url <- str_interp("https://swapi.co/api/${resource}/${i}/?format=json")
-      #Vemos el estatus de la conexion
+      #Vemos el estatus de la conexión
           resp <- GET(url)$status_code
 
-        if(resp == 404) next #En caso de que dicha conexion nos regrese un estatus 404 pasaremos a la siguiente solicitud
+        if(resp == 404) next #En caso de que dicha conexión nos regrese un estatus 404 pasaremos a la siguiente solicitud
 
       # Guardamos en la lista
         data[[i]] <- fromJSON(file=url)
@@ -167,7 +167,7 @@ especie_df <- do.call(rbind,especie) %>%  data.frame()
 
 ```
 
-Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las peliculas en las que aparece, sin embargo es mejor solo saber el numero de la pelicula y no la url, de manera que sea mas legible.
+Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.
 
 ```{r}
 personajes_df$films[[1]]
@@ -260,7 +260,7 @@ planeta_ti %>% head()
 ```
 
 
-## Concluciones
+## Conclusiones
 
 Sin duda alguna la estructuración de una base de datos en la ciencia de datos es lo menos "glamuroso" sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.
 

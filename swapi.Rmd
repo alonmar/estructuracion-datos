@@ -1,0 +1,275 @@
+---
+title: "R Notebook"
+output:
+  md_document:
+    variant: markdown_github
+  html_notebook: null
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+Normalmente cuando uno se encuentra trabajando con datos no están organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:
+
+
++ Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera
++ Dar forma a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes
+
+Hora de ensuciarse las manos!
+
+
+Primero cargaremos las librerías necesarias
+```{r}
+# En caso de no tener los paquetes necesarios debemos de instalarlos con los siguientes comandos
+# install.packages(c("tidyverse","rjson","httr"))
+
+library(tidyverse) #Estructuración de datos
+library(rjson)     #Lectura de formato json
+library(httr)      #Estatus de la conexión a la api
+```
+
+La api donde haremos la conexión es la de [https://swapi.co/](https://swapi.co/) la cual tiene una base de datos de los personajes, planetas, razas etc. Del universo de Star Wars.
+
+Primero veremos de que manera están estructurados los datos, nos apoyaremos en la [documentación](https://swapi.co/documentation).
+Necesitaremos esta información principalmente para saber cuentos elementos contiene cada base
+
+```{r}
+json_file <- "https://swapi.co/api/people/?page=1&format=json"
+json_data <- fromJSON(file=json_file)
+
+names(json_data)
+
+```
+
+Despues de consultar la api observamos cuantos personajes existen
+
+```{r}
+json_data$count
+```
+
+Como vemos son 87 por lo tanto consultaremos uno a uno la url correspondiente a cada personaje, y crearemos nuestro propio dataset, de esta manera se tendrá un mejor control en la elaboración del dataset
+
+
+```{r}
+
+
+# Creamos una lista vacía para ir llenándola
+data <- list()
+count <- json_data$count
+
+for (i in 1:count) {
+
+#Creamos la url
+    url <- str_interp("https://swapi.co/api/people/${i}/?format=json")
+#Vemos el estatus de la conexión
+    resp <- GET(url)$status_code
+
+  if(resp == 404) next #En caso de que dicha conexión nos regrese un estatus 404 pasaremos a la siguiente solicitud
+
+# Guardamos en la lista
+  data[[i]] <- fromJSON(file=url)
+
+
+
+  if(i %% 5 == 0 | i == count ) cat(paste0(round(i/count*100),"% \n")) #Solo para ver el progreso
+
+  }
+
+
+```
+
+
+Veamos la primer lista que contiene los datos de Luke Skywalker
+
+```{r}
+data[[1]]
+```
+
+Muy bien todo salió como esperábamos, ahora crearemos una función para hacer la obtención de datos mas rápida, y poder elegir que categoría solicitaremos.
+
+```{r}
+
+ swapi <- function(resource) {
+
+  url_resource <- str_interp("https://swapi.co/api/${resource}/?page=1&format=json")
+  json_data <- fromJSON(file=url_resource)
+
+
+   data <- list()
+   count <- json_data$count
+
+      for (i in 1:count) {
+
+      #Creamos la url
+          url <- str_interp("https://swapi.co/api/${resource}/${i}/?format=json")
+      #Vemos el estatus de la conexion
+          resp <- GET(url)$status_code
+
+        if(resp == 404) next #En caso de que dicha conexion nos regrese un estatus 404 pasaremos a la siguiente solicitud
+
+      # Guardamos en la lista
+        data[[i]] <- fromJSON(file=url)
+
+
+        if(i %% 5 == 0 | i == count ) cat(paste0(round(i/count*100),"% \n"))
+
+      }
+
+      data
+
+       }
+```
+
+Las posibles categorías de búsqueda son:
+
+
++ films
++ people
++ planets
++ species
++ starships
++ vehicles
+
+Comencemos con los personajes (people)
+
+```{r}
+
+
+personajes <-  swapi("people")
+
+```
+
+Ahora con las razas(species)
+
+```{r}
+especie <-  swapi("species")
+
+```
+
+Y por último los planetas(planets)
+```{r}
+planeta <-  swapi("planets")
+
+```
+
+
+Ya tenemos los datos que nos interesan sin embargo al provenir de un formato json o por así decirlo "Nosql", tendremos problemas al convertir en una forma estructura por lo tanto cambiaremos algunas cosas
+
+```{r}
+# Pasamos de lista a dataframe
+
+
+personajes_df <-  do.call(rbind, personajes) %>%  data.frame()
+
+planeta_df <- do.call(rbind,planeta)  %>%  data.frame()
+
+especie_df <- do.call(rbind,especie) %>%  data.frame()
+
+```
+
+Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las peliculas en las que aparece, sin embargo es mejor solo saber el numero de la pelicula y no la url, de manera que sea mas legible.
+
+```{r}
+personajes_df$films[[1]]
+```
+
+
+Por lo tanto haremos uso de las expresiones regulares y al paquete [stringr](https://resources.rstudio.com/rstudio-cheatsheets/stringr-cheat-sheet) incluido en tidyverse
+
+
+Crearemos una función que eliminara todos los caracteres excepto los números
+```{r}
+
+extract  <- function(variables) {
+  lapply(variables, function(x)(str_replace_all(x,"\\D","")) %>% paste0(collapse = ","))
+}
+
+
+```
+
+Reescribiremos ciertas variables aplicando la función antes hecha, crearemos la variable ID la cual es el número correspondiente a cada elemento
+
+```{r}
+
+personajes_di <-  personajes_df %>% mutate(species = extract(species), films =  extract(films),
+                                           homeworld = extract(homeworld),vehicles = extract(vehicles),
+                                           starships = extract(vehicles),id_personajes = extract(url))
+
+
+especie_di <-  especie_df %>% mutate(homeworld = extract(homeworld), people =  extract(people),
+                                        films =  extract(films),id_especie = extract(url) )
+
+
+planeta_di <-  planeta_df %>% mutate(residents = extract(residents),films =  extract(films),
+                                     id_planeta = extract(url) )
+
+```
+
+Veamos ahora
+```{r}
+personajes_di$films[[1]]
+```
+
+Muy bien ya está en un mejor formato, es importante mencionar que las películas están enumeradas de acuerdo al orden cronológico de estreno por lo tanto el número 1 hace referencia a "Episodio 4 - A New Hope" y no a "Episodio 1 - The Phantom Menace" (Obviamente esto no seria star wars sin el conflicto del orden de las películas)
+
+Perfecto ahora solo queda convertir todo en un dataframe de vectores, ya que actualmente son dataframes de listas
+
+```{r}
+
+personajes_ti <-  personajes_di  %>% map_dfr(unlist)
+
+especie_ti <-  especie_di %>% map_dfr(unlist)
+
+planeta_ti <-  planeta_di %>% map_dfr(unlist)
+
+
+personajes_ti %>% head()
+especie_ti %>% head()
+planeta_ti %>% head()
+```
+
+Ahora es momento de darle un formato homogéneo a los NAs  ya que tienen la forma de "n/a" "unknown" o simplemente es un caracter vacío
+
+```{r}
+personajes_ti[personajes_ti == "n/a"|personajes_ti =="unknown"|personajes_ti ==""] <- NA
+especie_ti[especie_ti == "n/a"|especie_ti =="unknown"|especie_ti ==""] <- NA
+planeta_ti[planeta_ti == "n/a"|planeta_ti =="unknown"|planeta_ti ==""] <- NA
+
+```
+
+
+Y ahora el paso final! convertir las variables que hasta este momento eran del tipo caracter a integer
+
+
+```{r}
+planeta_ti[c(2,3,4,8,9,15)] <- lapply(planeta_ti[c(2,3,4,8,9,15)], as.integer)
+
+especie_ti[c(4,8,16)] <- lapply(especie_ti[c(4,8,16)], as.integer)
+
+personajes_ti[c(2,3,17)] <- lapply(personajes_ti[c(2,3,17)], as.integer)
+```
+
+
+Y este es el resultado
+
+
+```{r}
+personajes_ti %>% head()
+especie_ti %>% head()
+planeta_ti %>% head()
+```
+
+
+## Concluciones
+
+Sin duda alguna la estructuración de una base de datos en la ciencia de datos es lo menos "glamuroso" sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.
+
+
+Te invito a que por tu cuenta hagas la solicitud  a *films*, *starships*, *vehicles*. De tal manera que veas lo fácil que es!
+
+
+
+Fuentes:
+
+https://www.tutorialspoint.com/r/r_json_files.htm
+https://github.com/Ironholds/rwars

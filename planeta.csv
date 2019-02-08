@@ -1,0 +1,62 @@
+"name","rotation_period","orbital_period","diameter","climate","gravity","terrain","surface_water","population","residents","films","created","edited","url","id_planeta"
+"Tatooine",23,304,10465,"arid","1 standard","desert",1,200000,"1,2,4,6,7,8,9,11,43,62","5,4,6,3,1","2014-12-09T13:50:49.641000Z","2014-12-21T20:48:04.175778Z","https://swapi.co/api/planets/1/",1
+"Alderaan",24,364,12500,"temperate","1 standard","grasslands, mountains",40,2000000000,"5,68,81","6,1","2014-12-10T11:35:48.479000Z","2014-12-20T20:58:18.420000Z","https://swapi.co/api/planets/2/",2
+"Yavin IV",24,4818,10200,"temperate, tropical","1 standard","jungle, rainforests",8,1000,,"1","2014-12-10T11:37:19.144000Z","2014-12-20T20:58:18.421000Z","https://swapi.co/api/planets/3/",3
+"Hoth",23,549,7200,"frozen","1.1 standard","tundra, ice caves, mountain ranges",100,,,"2","2014-12-10T11:39:13.934000Z","2014-12-20T20:58:18.423000Z","https://swapi.co/api/planets/4/",4
+"Dagobah",23,341,8900,"murky","N/A","swamp, jungles",8,,,"2,6,3","2014-12-10T11:42:22.590000Z","2014-12-20T20:58:18.425000Z","https://swapi.co/api/planets/5/",5
+"Bespin",12,5110,118000,"temperate","1.5 (surface), 1 standard (Cloud City)","gas giant",0,6000000,"26","2","2014-12-10T11:43:55.240000Z","2014-12-20T20:58:18.427000Z","https://swapi.co/api/planets/6/",6
+"Endor",18,402,4900,"temperate","0.85 standard","forests, mountains, lakes",8,30000000,"30","3","2014-12-10T11:50:29.349000Z","2014-12-20T20:58:18.429000Z","https://swapi.co/api/planets/7/",7
+"Naboo",26,312,12120,"temperate","1 standard","grassy hills, swamps, forests, mountains",12,,"3,21,36,37,38,39,42,60,61,66,35","5,4,6,3","2014-12-10T11:52:31.066000Z","2014-12-20T20:58:18.430000Z","https://swapi.co/api/planets/8/",8
+"Coruscant",24,368,12240,"temperate","1 standard","cityscape, mountains",,,"34,55,74","5,4,6,3","2014-12-10T11:54:13.921000Z","2014-12-20T20:58:18.432000Z","https://swapi.co/api/planets/9/",9
+"Kamino",27,463,19720,"temperate","1 standard","ocean",100,1000000000,"22,72,73","5","2014-12-10T12:45:06.577000Z","2014-12-20T20:58:18.434000Z","https://swapi.co/api/planets/10/",10
+"Geonosis",30,256,11370,"temperate, arid","0.9 standard","rock, desert, mountain, barren",5,,"63","5","2014-12-10T12:47:22.350000Z","2014-12-20T20:58:18.437000Z","https://swapi.co/api/planets/11/",11
+"Utapau",27,351,12900,"temperate, arid, windy","1 standard","scrublands, savanna, canyons, sinkholes",0,95000000,"83","6","2014-12-10T12:49:01.491000Z","2014-12-20T20:58:18.439000Z","https://swapi.co/api/planets/12/",12
+"Mustafar",36,412,4200,"hot","1 standard","volcanoes, lava rivers, mountains, caves",0,20000,,"6","2014-12-10T12:50:16.526000Z","2014-12-20T20:58:18.440000Z","https://swapi.co/api/planets/13/",13
+"Kashyyyk",26,381,12765,"tropical","1 standard","jungle, forests, lakes, rivers",60,45000000,"13,80","6","2014-12-10T13:32:00.124000Z","2014-12-20T20:58:18.442000Z","https://swapi.co/api/planets/14/",14
+"Polis Massa",24,590,0,"artificial temperate ","0.56 standard","airless asteroid",0,1000000,,"6","2014-12-10T13:33:46.405000Z","2014-12-20T20:58:18.444000Z","https://swapi.co/api/planets/15/",15
+"Mygeeto",12,167,10088,"frigid","1 standard","glaciers, mountains, ice canyons",,19000000,,"6","2014-12-10T13:43:39.139000Z","2014-12-20T20:58:18.446000Z","https://swapi.co/api/planets/16/",16
+"Felucia",34,231,9100,"hot, humid","0.75 standard","fungus forests",,8500000,,"6","2014-12-10T13:44:50.397000Z","2014-12-20T20:58:18.447000Z","https://swapi.co/api/planets/17/",17
+"Cato Neimoidia",25,278,0,"temperate, moist","1 standard","mountains, fields, forests, rock arches",,10000000,"33","6","2014-12-10T13:46:28.704000Z","2014-12-20T20:58:18.449000Z","https://swapi.co/api/planets/18/",18
+"Saleucami",26,392,14920,"hot",,"caves, desert, mountains, volcanoes",,1400000000,,"6","2014-12-10T13:47:46.874000Z","2014-12-20T20:58:18.450000Z","https://swapi.co/api/planets/19/",19
+"Stewjon",,,0,"temperate","1 standard","grass",,,"10",,"2014-12-10T16:16:26.566000Z","2014-12-20T20:58:18.452000Z","https://swapi.co/api/planets/20/",20
+"Eriadu",24,360,13490,"polluted","1 standard","cityscape",,,"12",,"2014-12-10T16:26:54.384000Z","2014-12-20T20:58:18.454000Z","https://swapi.co/api/planets/21/",21
+"Corellia",25,329,11000,"temperate","1 standard","plains, urban, hills, forests",70,,"14,18",,"2014-12-10T16:49:12.453000Z","2014-12-20T20:58:18.456000Z","https://swapi.co/api/planets/22/",22
+"Rodia",29,305,7549,"hot","1 standard","jungles, oceans, urban, swamps",60,1300000000,"15",,"2014-12-10T17:03:28.110000Z","2014-12-20T20:58:18.458000Z","https://swapi.co/api/planets/23/",23
+"Nal Hutta",87,413,12150,"temperate","1 standard","urban, oceans, swamps, bogs",,,"16",,"2014-12-10T17:11:29.452000Z","2014-12-20T20:58:18.460000Z","https://swapi.co/api/planets/24/",24
+"Dantooine",25,378,9830,"temperate","1 standard","oceans, savannas, mountains, grasslands",,1000,,,"2014-12-10T17:23:29.896000Z","2014-12-20T20:58:18.461000Z","https://swapi.co/api/planets/25/",25
+"Bestine IV",26,680,6400,"temperate",,"rocky islands, oceans",98,62000000,"19",,"2014-12-12T11:16:55.078000Z","2014-12-20T20:58:18.463000Z","https://swapi.co/api/planets/26/",26
+"Ord Mantell",26,334,14050,"temperate","1 standard","plains, seas, mesas",10,,,"2","2014-12-15T12:23:41.661000Z","2014-12-20T20:58:18.464000Z","https://swapi.co/api/planets/27/",27
+,0,0,0,,,,,,"20,23,29,32,75,84,85,86,87,88",,"2014-12-15T12:25:59.569000Z","2014-12-20T20:58:18.466000Z","https://swapi.co/api/planets/28/",28
+"Trandosha",25,371,0,"arid","0.62 standard","mountains, seas, grasslands, deserts",,42000000,"24",,"2014-12-15T12:53:47.695000Z","2014-12-20T20:58:18.468000Z","https://swapi.co/api/planets/29/",29
+"Socorro",20,326,0,"arid","1 standard","deserts, mountains",,300000000,"25",,"2014-12-15T12:56:31.121000Z","2014-12-20T20:58:18.469000Z","https://swapi.co/api/planets/30/",30
+"Mon Cala",21,398,11030,"temperate","1","oceans, reefs, islands",100,,"27",,"2014-12-18T11:07:01.792000Z","2014-12-20T20:58:18.471000Z","https://swapi.co/api/planets/31/",31
+"Chandrila",20,368,13500,"temperate","1","plains, forests",40,1200000000,"28",,"2014-12-18T11:11:51.872000Z","2014-12-20T20:58:18.472000Z","https://swapi.co/api/planets/32/",32
+"Sullust",20,263,12780,"superheated","1","mountains, volcanoes, rocky deserts",5,,"31",,"2014-12-18T11:25:40.243000Z","2014-12-20T20:58:18.474000Z","https://swapi.co/api/planets/33/",33
+"Toydaria",21,184,7900,"temperate","1","swamps, lakes",,11000000,"40",,"2014-12-19T17:47:54.403000Z","2014-12-20T20:58:18.476000Z","https://swapi.co/api/planets/34/",34
+"Malastare",26,201,18880,"arid, temperate, tropical","1.56","swamps, deserts, jungles, mountains",,2000000000,"41",,"2014-12-19T17:52:13.106000Z","2014-12-20T20:58:18.478000Z","https://swapi.co/api/planets/35/",35
+"Dathomir",24,491,10480,"temperate","0.9","forests, deserts, savannas",,5200,"44",,"2014-12-19T18:00:40.142000Z","2014-12-20T20:58:18.480000Z","https://swapi.co/api/planets/36/",36
+"Ryloth",30,305,10600,"temperate, arid, subartic","1","mountains, valleys, deserts, tundra",5,1500000000,"45,46",,"2014-12-20T09:46:25.740000Z","2014-12-20T20:58:18.481000Z","https://swapi.co/api/planets/37/",37
+"Aleen Minor",,,,,,,,,"47",,"2014-12-20T09:52:23.452000Z","2014-12-20T20:58:18.483000Z","https://swapi.co/api/planets/38/",38
+"Vulpter",22,391,14900,"temperate, artic","1","urban, barren",,421000000,"48",,"2014-12-20T09:56:58.874000Z","2014-12-20T20:58:18.485000Z","https://swapi.co/api/planets/39/",39
+"Troiken",,,,,,"desert, tundra, rainforests, mountains",,,"49",,"2014-12-20T10:01:37.395000Z","2014-12-20T20:58:18.487000Z","https://swapi.co/api/planets/40/",40
+"Tund",48,1770,12190,,,"barren, ash",,0,"50",,"2014-12-20T10:07:29.578000Z","2014-12-20T20:58:18.489000Z","https://swapi.co/api/planets/41/",41
+"Haruun Kal",25,383,10120,"temperate","0.98","toxic cloudsea, plateaus, volcanoes",,705300,"51",,"2014-12-20T10:12:28.980000Z","2014-12-20T20:58:18.491000Z","https://swapi.co/api/planets/42/",42
+"Cerea",27,386,,"temperate","1","verdant",20,450000000,"52",,"2014-12-20T10:14:48.178000Z","2014-12-20T20:58:18.493000Z","https://swapi.co/api/planets/43/",43
+"Glee Anselm",33,206,15600,"tropical, temperate","1","lakes, islands, swamps, seas",80,500000000,"53",,"2014-12-20T10:18:26.110000Z","2014-12-20T20:58:18.495000Z","https://swapi.co/api/planets/44/",44
+"Iridonia",29,413,,,,"rocky canyons, acid pools",,,"54",,"2014-12-20T10:26:05.788000Z","2014-12-20T20:58:18.497000Z","https://swapi.co/api/planets/45/",45
+"Tholoth",,,,,,,,,,,"2014-12-20T10:28:31.117000Z","2014-12-20T20:58:18.498000Z","https://swapi.co/api/planets/46/",46
+"Iktotch",22,481,,"arid, rocky, windy","1","rocky",,,"56",,"2014-12-20T10:31:32.413000Z","2014-12-20T20:58:18.500000Z","https://swapi.co/api/planets/47/",47
+"Quermia",,,,,,,,,"57",,"2014-12-20T10:34:08.249000Z","2014-12-20T20:58:18.502000Z","https://swapi.co/api/planets/48/",48
+"Dorin",22,409,13400,"temperate","1",,,,"58",,"2014-12-20T10:48:36.141000Z","2014-12-20T20:58:18.504000Z","https://swapi.co/api/planets/49/",49
+"Champala",27,318,,"temperate","1","oceans, rainforests, plateaus",,,"59",,"2014-12-20T10:52:51.524000Z","2014-12-20T20:58:18.506000Z","https://swapi.co/api/planets/50/",50
+"Mirial",,,,,,"deserts",,,"64,65",,"2014-12-20T16:44:46.318000Z","2014-12-20T20:58:18.508000Z","https://swapi.co/api/planets/51/",51
+"Serenno",,,,,,"rainforests, rivers, mountains",,,"67",,"2014-12-20T16:52:13.357000Z","2014-12-20T20:58:18.510000Z","https://swapi.co/api/planets/52/",52
+"Concord Dawn",,,,,,"jungles, forests, deserts",,,"69",,"2014-12-20T16:54:39.909000Z","2014-12-20T20:58:18.512000Z","https://swapi.co/api/planets/53/",53
+"Zolan",,,,,,,,,"70",,"2014-12-20T16:56:37.250000Z","2014-12-20T20:58:18.514000Z","https://swapi.co/api/planets/54/",54
+"Ojom",,,,"frigid",,"oceans, glaciers",100,500000000,"71",,"2014-12-20T17:27:41.286000Z","2014-12-20T20:58:18.516000Z","https://swapi.co/api/planets/55/",55
+"Skako",27,384,,"temperate","1","urban, vines",,,"76",,"2014-12-20T17:50:47.864000Z","2014-12-20T20:58:18.517000Z","https://swapi.co/api/planets/56/",56
+"Muunilinst",28,412,13800,"temperate","1","plains, forests, hills, mountains",25,,"77",,"2014-12-20T17:57:47.420000Z","2014-12-20T20:58:18.519000Z","https://swapi.co/api/planets/57/",57
+"Shili",,,,"temperate","1","cities, savannahs, seas, plains",,,"78",,"2014-12-20T18:43:14.049000Z","2014-12-20T20:58:18.521000Z","https://swapi.co/api/planets/58/",58
+"Kalee",23,378,13850,"arid, temperate, tropical","1","rainforests, cliffs, canyons, seas",,,"79",,"2014-12-20T19:43:51.278000Z","2014-12-20T20:58:18.523000Z","https://swapi.co/api/planets/59/",59
+"Umbara",,,,,,,,,"82",,"2014-12-20T20:18:36.256000Z","2014-12-20T20:58:18.525000Z","https://swapi.co/api/planets/60/",60
+"Jakku",,,,,,"deserts",,,,"7","2015-04-17T06:55:57.556495Z","2015-04-17T06:55:57.556551Z","https://swapi.co/api/planets/61/",61

@@ -1,7 +1,7 @@
-Normalmente cuando uno se encuentra trabajando con datos no están organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:
+Normalmente cuando uno se encuentra trabajando con datos no se encuentran organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:
 
 -   Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera
--   Dar forma a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes
+-   Dar estructura a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes
 
 Hora de ensuciarse las manos!
 
@@ -32,7 +32,7 @@ library(httr)      #Estatus de la conexión a la api
 
 La api donde haremos la conexión es la de <https://swapi.co/> la cual tiene una base de datos de los personajes, planetas, razas etc. Del universo de Star Wars.
 
-Primero veremos de que manera están estructurados los datos, nos apoyaremos en la [documentación](https://swapi.co/documentation). Necesitaremos esta información principalmente para saber cuentos elementos contiene cada base
+Primero veremos de que manera están estructurados los datos, nos apoyaremos en la [documentación](https://swapi.co/documentation). Necesitaremos esta información principalmente para saber cuantos elementos contiene cada base
 
 ``` r
 json_file <- "https://swapi.co/api/people/?page=1&format=json"

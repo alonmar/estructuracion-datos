@@ -409,7 +409,6 @@ personajes_ti %>% head() %>% knitr::kable()
 ``` r
 especie_ti %>% head() %>% knitr::kable()
 ```
-
 | name           | classification | designation |  average\_height| skin\_colors                      | hair\_colors              | eye\_colors                             |  average\_lifespan| homeworld | language       | people                                                                                             | films         | created                     | edited                      | url                               |  id\_especie|
 |:---------------|:---------------|:------------|----------------:|:----------------------------------|:--------------------------|:----------------------------------------|------------------:|:----------|:---------------|:---------------------------------------------------------------------------------------------------|:--------------|:----------------------------|:----------------------------|:----------------------------------|------------:|
 | Human          | mammal         | sentient    |              180| caucasian, black, asian, hispanic | blonde, brown, black, red | brown, blue, green, hazel, grey, amber  |                120| 9         | Galactic Basic | 1,4,5,6,7,9,10,11,12,14,18,19,21,22,25,26,28,29,32,34,43,51,60,61,62,66,67,68,69,74,81,84,85,86,35 | 2,7,5,4,6,3,1 | 2014-12-10T13:52:11.567000Z | 2015-04-17T06:59:55.850671Z | <https://swapi.co/api/species/1/> |            1|

@@ -9,17 +9,17 @@ output:
   pdf_document: default
 ---
 
-Normalmente cuando uno se encuentra trabajando con datos no se encuentran organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:
+Normalmente cuando nos encontramos trabajando con datos en pocas ocasiones se encuentran organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:
 
 
-+ Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera
-+ Dar estructura a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes
++ Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera.
++ Dar estructura a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes.
 
-Hora de ensuciarse las manos!
+### Hora de ensuciarse las manos!
 
 
 Primero cargaremos las librerías necesarias
-```{r}
+```{r message=FALSE, warning=FALSE}
 # En caso de no tener los paquetes necesarios debemos de instalarlos con los siguientes comandos
 # install.packages(c("tidyverse","rjson","httr"))
 
@@ -41,13 +41,13 @@ names(json_data)
 
 ```
 
-Despues de consultar la api observamos cuantos personajes existen
+Después de consultar la api observamos cuantos personajes existen
 
 ```{r}
 json_data$count
 ```
 
-Como vemos son 87 por lo tanto consultaremos uno a uno la url correspondiente a cada personaje, y crearemos nuestro propio dataset, de esta manera se tendrá un mejor control en la elaboración del dataset
+Como vemos son 87 por lo tanto consultaremos uno a uno la url correspondiente a cada personaje, y crearemos nuestro propio dataset, de esta manera se tendrá un mejor control en su elaboración
 
 
 ```{r}
@@ -153,7 +153,7 @@ planeta <-  swapi("planets")
 ```
 
 
-Ya tenemos los datos que nos interesan sin embargo al provenir de un formato json o por así decirlo "Nosql", tendremos problemas al convertir en una forma estructura por lo tanto cambiaremos algunas cosas
+Ya tenemos los datos que nos interesan sin embargo al provenir de un formato json o por así decirlo "Nosql", tendremos problemas al convertir en una forma estructura por tablas, por lo tanto cambiaremos algunas cosas
 
 ```{r}
 # Pasamos de lista a dataframe
@@ -167,7 +167,7 @@ especie_df <- do.call(rbind,especie) %>%  data.frame()
 
 ```
 
-Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.
+Si observamos el caso de Luke Skywalker veremos que en la columna de *films* se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.
 
 ```{r}
 personajes_df$films[[1]]
@@ -254,15 +254,15 @@ Y este es el resultado
 
 
 ```{r}
-personajes_ti %>% head()
-especie_ti %>% head()
-planeta_ti %>% head()
+personajes_ti %>% head() %>% knitr::kable()
+especie_ti %>% head() %>% knitr::kable()
+planeta_ti %>% head() %>% knitr::kable()
 ```
 
 
 ## Conclusiones
 
-Sin duda alguna la estructuración de una base de datos en la ciencia de datos es lo menos "glamuroso" sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.
+Sin duda alguna la ingeniería de datos (data engineering) dentro de la ciencia de datos es lo menos "glamuroso" sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.
 
 
 Te invito a que por tu cuenta hagas la solicitud  a *films*, *starships*, *vehicles*. De tal manera que veas lo fácil que es!

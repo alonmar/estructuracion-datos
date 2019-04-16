@@ -103,6 +103,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -236,12 +239,13 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>Normalmente cuando uno se encuentra trabajando con datos no se encuentran organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:</p>
+<p>Normalmente cuando nos encontramos trabajando con datos en pocas ocasiones se encuentran organizados o estructurados, y la mayor parte del tiempo radica en la estructuración de estos, por lo que a continuación veremos como:</p>
 <ul>
-<li>Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera</li>
-<li>Dar estructura a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes</li>
+<li>Solicitar datos de una APIweb, ya que es normal que muchos datos se entreguen de esta manera.</li>
+<li>Dar estructura a datos en formato json para poder analizarlos, ya que muchas de las herramientas estadísticas funcionan con dataframes.</li>
 </ul>
-<p>Hora de ensuciarse las manos!</p>
+<div id="hora-de-ensuciarse-las-manos" class="section level3">
+<h3>Hora de ensuciarse las manos!</h3>
 <p>Primero cargaremos las librerías necesarias</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -268,7 +272,7 @@ names(json_data)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Despues de consultar la api observamos cuantos personajes existen</p>
+<p>Después de consultar la api observamos cuantos personajes existen</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuanNvbl9kYXRhJGNvdW50XG5gYGAifQ== -->
@@ -279,7 +283,7 @@ names(json_data)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Como vemos son 87 por lo tanto consultaremos uno a uno la url correspondiente a cada personaje, y crearemos nuestro propio dataset, de esta manera se tendrá un mejor control en la elaboración del dataset</p>
+<p>Como vemos son 87 por lo tanto consultaremos uno a uno la url correspondiente a cada personaje, y crearemos nuestro propio dataset, de esta manera se tendrá un mejor control en su elaboración</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDcmVhbW9zIHVuYSBsaXN0YSB2YWPDrWEgcGFyYSBpciBsbGVuw6FuZG9sYVxuZGF0YSA8LSBsaXN0KClcbmNvdW50IDwtIGpzb25fZGF0YSRjb3VudFxuZm9yIChpIGluIDE6Y291bnQpIHtcbiNDcmVhbW9zIGxhIHVybFxuICAgIHVybCA8LSBzdHJfaW50ZXJwKFwiaHR0cHM6Ly9zd2FwaS5jby9hcGkvcGVvcGxlLyR7aX0vP2Zvcm1hdD1qc29uXCIpXG4jVmVtb3MgZWwgZXN0YXR1cyBkZSBsYSBjb25leGnDs25cbiAgICByZXNwIDwtIEdFVCh1cmwpJHN0YXR1c19jb2RlXG4gIGlmKHJlc3AgPT0gNDA0KSBuZXh0ICNFbiBjYXNvIGRlIHF1ZSBkaWNoYSBjb25leGnDs24gbm9zIHJlZ3Jlc2UgdW4gZXN0YXR1cyA0MDQgcGFzYXJlbW9zIGEgbGEgc2lndWllbnRlIHNvbGljaXR1ZFxuIyBHdWFyZGFtb3MgZW4gbGEgbGlzdGFcbiAgZGF0YVtbaV1dIDwtIGZyb21KU09OKGZpbGU9dXJsKVxuICBpZihpICUlIDUgPT0gMCB8IGkgPT0gY291bnQgKSBjYXQocGFzdGUwKHJvdW5kKGkvY291bnQqMTAwKSxcIiUgXFxuXCIpKSAjU29sbyBwYXJhIHZlciBlbCBwcm9ncmVzb1xuICB9XG5gYGAifQ== -->
@@ -484,7 +488,7 @@ $url
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Ya tenemos los datos que nos interesan sin embargo al provenir de un formato json o por así decirlo “Nosql”, tendremos problemas al convertir en una forma estructura por lo tanto cambiaremos algunas cosas</p>
+<p>Ya tenemos los datos que nos interesan sin embargo al provenir de un formato json o por así decirlo “Nosql”, tendremos problemas al convertir en una forma estructura por tablas, por lo tanto cambiaremos algunas cosas</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQYXNhbW9zIGRlIGxpc3RhIGEgZGF0YWZyYW1lXG5wZXJzb25hamVzX2RmIDwtICBkby5jYWxsKHJiaW5kLCBwZXJzb25hamVzKSAlPiUgIGRhdGEuZnJhbWUoKVxucGxhbmV0YV9kZiA8LSBkby5jYWxsKHJiaW5kLHBsYW5ldGEpICAlPiUgIGRhdGEuZnJhbWUoKVxuZXNwZWNpZV9kZiA8LSBkby5jYWxsKHJiaW5kLGVzcGVjaWUpICU+JSAgZGF0YS5mcmFtZSgpXG5gYGAifQ== -->
@@ -495,7 +499,7 @@ especie_df &lt;- do.call(rbind,especie) %&gt;%  data.frame()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Si observamos por ejemplo el caso de Luke Skywalker veremos que en la columna de <em>films</em> se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.</p>
+<p>Si observamos el caso de Luke Skywalker veremos que en la columna de <em>films</em> se encuentran las url a cada una de las películas en las que aparece, sin embargo es mejor solo saber el numero de la película y no la url, de manera que sea mas legible.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVyc29uYWplc19kZiRmaWxtc1tbMV1dXG5gYGAifQ== -->
@@ -621,48 +625,497 @@ planeta_ti[planeta_ti == &quot;n/a&quot;|planeta_ti ==&quot;unknown&quot;|planet
 <p>Y este es el resultado</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVyc29uYWplc190aSAlPiUgaGVhZCgpXG5gYGAifQ== -->
-<pre class="r"><code>personajes_ti %&gt;% head()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGVyc29uYWplc190aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>personajes_ti %&gt;% head() %&gt;% knitr::kable()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MTcsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFCcVZWelc3YVFCQmVmaHdLVWFKR09WYXFlQUJqdkdzYmdvOXBiazJWS28ycXRKZDB3UnU4eGRpV2JVcTQ5ZGduNkN2MDBsTWZvNC9VUTlveGVQMEhCS1FpamIzejdUYy9PMnRtcmk5dVNldTJoUkNxb3BwVVFkVWFMT3RWZUZSUUhUWGo5d05DdFZOWW5JQThCemxJTm80dlp4UFdmamRaektrellVR0NTcTg2MnRzcm9WeVR6Z1ZKbE1NTEdrUjIrejIxVXZMaEplTzBmUldNcVVzVHFIazFaMjc3a2dZaEtFZkxjQWo5QlBrQjhnbmtOOGgza0YrNS9UY2dyMEhhSU45QU1NaERLVjFwNkhpdUZVZjRDNy8wdmRxc3U1N0xVbUxnelYyUjRWS1IyK09BTFVvTzYvZVVpNFBVeDU1akNaTzV6U01tdDRmT0xIVzVoSVRpOExFZEZaV1M1NXpwd1lJNWpqZFB0RnJBckkwYmhhUlg5cVhqNDhINStRZGhpekhKTkVuVE1xV2hZeVhITEpoSnh0S3FsT3lVT214YldaZDdTY3g3bHRPRVZkNVRCYTh0enRZUWtpRkY2eWFSZTdJbVk3a3Y3b0hJaHF5dndBUTZ5a0VwcjBFS25EVS9rZ0ZBT2RxR2hNajJZNVN0SmF6TG1ycFd0R0x4cWdWR29lUlkvdy9yRjBURmVnZVRqanE0d1pwcHFLYUJsWjZ1cTZyNnNVekI2ZzAyVEx5a2FFYi9DUW9HUjRyVzd6MUJPVE9KcXZUVkp3SVIxVlFIU24rQXQxTU1ZbUpkVWNuS3k1YVRFZldHWUJQM1RhT25uRzMybGxFZ2JYV3drNEozZThIYWJvcXhtOUxmY0xLWGRoVDVvZG50aG5QcWMyWGtkZUhWOVpubk82eUx1L3V3eUY0c2JTK1d2aGZMMkl2VjY2S3NrVmZpTHpmdWMvRlhIdjlSVm5oaElFa3VuYkl3S2RCSjJzQUJGSjNHWnJrT0M1MG1ESk4xeTRhV2ZUZnlIRTgwN2xZNDRXNEJhYklGSzFLR0hPYlczWUpSZ1J5TW1ac05zYWJ0VGRuY0M5SUJJTjF6WnlwQ05rS2ZqVGdUNnJNdnpPWWpKOVdiWVFTanp1Wit5aDhGakVaWmwyY1d6N1RhTEhCRUsrUFduYytDMEhQcDU3Z2FoUkkxWVJnb29reHhiYXRmNFFHdDRFKzVsaU1ucnM2cWxnSnNXVFNpeW4wUVZ4U2h4NUpKdy9NajdybGdWRDFOYmlodlhBbEt3UE9aRzJkaWRVYjJ6SjEwaUI1SFNLNGFKZWxWa3VzWDY1TlZ6S3BvWFZKYURYZk1zMEh0MENFVDlUaU81MTk4WXNVUHVDc3V2d1ZvcUVSZVJBV3ZCVmNya09YaDBPTS9nQUp2dHdRSkFBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["height"],"name":[2],"type":["int"],"align":["right"]},{"label":["mass"],"name":[3],"type":["int"],"align":["right"]},{"label":["hair_color"],"name":[4],"type":["chr"],"align":["left"]},{"label":["skin_color"],"name":[5],"type":["chr"],"align":["left"]},{"label":["eye_color"],"name":[6],"type":["chr"],"align":["left"]},{"label":["birth_year"],"name":[7],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[8],"type":["chr"],"align":["left"]},{"label":["homeworld"],"name":[9],"type":["chr"],"align":["left"]},{"label":["films"],"name":[10],"type":["chr"],"align":["left"]},{"label":["species"],"name":[11],"type":["chr"],"align":["left"]},{"label":["vehicles"],"name":[12],"type":["chr"],"align":["left"]},{"label":["starships"],"name":[13],"type":["chr"],"align":["left"]},{"label":["created"],"name":[14],"type":["chr"],"align":["left"]},{"label":["edited"],"name":[15],"type":["chr"],"align":["left"]},{"label":["url"],"name":[16],"type":["chr"],"align":["left"]},{"label":["id_personajes"],"name":[17],"type":["int"],"align":["right"]}],"data":[{"1":"Luke Skywalker","2":"172","3":"77","4":"blond","5":"fair","6":"blue","7":"19BBY","8":"male","9":"1","10":"2,6,3,1,7","11":"1","12":"14,30","13":"1430","14":"2014-12-09T13:50:51.644000Z","15":"2014-12-20T21:17:56.891000Z","16":"https://swapi.co/api/people/1/","17":"1"},{"1":"C-3PO","2":"167","3":"75","4":"NA","5":"gold","6":"yellow","7":"112BBY","8":"NA","9":"1","10":"2,5,4,6,3,1","11":"2","12":"NA","13":"NA","14":"2014-12-10T15:10:51.357000Z","15":"2014-12-20T21:17:50.309000Z","16":"https://swapi.co/api/people/2/","17":"2"},{"1":"R2-D2","2":"96","3":"32","4":"NA","5":"white, blue","6":"red","7":"33BBY","8":"NA","9":"8","10":"2,5,4,6,3,1,7","11":"2","12":"NA","13":"NA","14":"2014-12-10T15:11:50.376000Z","15":"2014-12-20T21:17:50.311000Z","16":"https://swapi.co/api/people/3/","17":"3"},{"1":"Darth Vader","2":"202","3":"136","4":"none","5":"white","6":"yellow","7":"41.9BBY","8":"male","9":"1","10":"2,6,3,1","11":"1","12":"NA","13":"NA","14":"2014-12-10T15:18:20.704000Z","15":"2014-12-20T21:17:50.313000Z","16":"https://swapi.co/api/people/4/","17":"4"},{"1":"Leia Organa","2":"150","3":"49","4":"brown","5":"light","6":"brown","7":"19BBY","8":"female","9":"2","10":"2,6,3,1,7","11":"1","12":"30","13":"30","14":"2014-12-10T15:20:09.791000Z","15":"2014-12-20T21:17:50.315000Z","16":"https://swapi.co/api/people/5/","17":"5"},{"1":"Owen Lars","2":"178","3":"120","4":"brown, grey","5":"light","6":"blue","7":"52BBY","8":"male","9":"1","10":"5,6,1","11":"1","12":"NA","13":"NA","14":"2014-12-10T15:52:14.024000Z","15":"2014-12-20T21:17:50.317000Z","16":"https://swapi.co/api/people/6/","17":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[17]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXNwZWNpZV90aSAlPiUgaGVhZCgpXG5gYGAifQ== -->
-<pre class="r"><code>especie_ti %&gt;% head()</code></pre>
+<p>
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<colgroup>
+<col width="6%" />
+<col width="3%" />
+<col width="2%" />
+<col width="5%" />
+<col width="5%" />
+<col width="4%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="6%" />
+<col width="3%" />
+<col width="4%" />
+<col width="4%" />
+<col width="11%" />
+<col width="11%" />
+<col width="12%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="right">height</th>
+<th align="right">mass</th>
+<th align="left">hair_color</th>
+<th align="left">skin_color</th>
+<th align="left">eye_color</th>
+<th align="left">birth_year</th>
+<th align="left">gender</th>
+<th align="left">homeworld</th>
+<th align="left">films</th>
+<th align="left">species</th>
+<th align="left">vehicles</th>
+<th align="left">starships</th>
+<th align="left">created</th>
+<th align="left">edited</th>
+<th align="left">url</th>
+<th align="right">id_personajes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="right">172</td>
+<td align="right">77</td>
+<td align="left">blond</td>
+<td align="left">fair</td>
+<td align="left">blue</td>
+<td align="left">19BBY</td>
+<td align="left">male</td>
+<td align="left">1</td>
+<td align="left">2,6,3,1,7</td>
+<td align="left">1</td>
+<td align="left">14,30</td>
+<td align="left">1430</td>
+<td align="left">2014-12-09T13:50:51.644000Z</td>
+<td align="left">2014-12-20T21:17:56.891000Z</td>
+<td align="left">https://swapi.co/api/people/1/</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+<td align="right">75</td>
+<td align="left">NA</td>
+<td align="left">gold</td>
+<td align="left">yellow</td>
+<td align="left">112BBY</td>
+<td align="left">NA</td>
+<td align="left">1</td>
+<td align="left">2,5,4,6,3,1</td>
+<td align="left">2</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-12-10T15:10:51.357000Z</td>
+<td align="left">2014-12-20T21:17:50.309000Z</td>
+<td align="left">https://swapi.co/api/people/2/</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">R2-D2</td>
+<td align="right">96</td>
+<td align="right">32</td>
+<td align="left">NA</td>
+<td align="left">white, blue</td>
+<td align="left">red</td>
+<td align="left">33BBY</td>
+<td align="left">NA</td>
+<td align="left">8</td>
+<td align="left">2,5,4,6,3,1,7</td>
+<td align="left">2</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-12-10T15:11:50.376000Z</td>
+<td align="left">2014-12-20T21:17:50.311000Z</td>
+<td align="left">https://swapi.co/api/people/3/</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Darth Vader</td>
+<td align="right">202</td>
+<td align="right">136</td>
+<td align="left">none</td>
+<td align="left">white</td>
+<td align="left">yellow</td>
+<td align="left">41.9BBY</td>
+<td align="left">male</td>
+<td align="left">1</td>
+<td align="left">2,6,3,1</td>
+<td align="left">1</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-12-10T15:18:20.704000Z</td>
+<td align="left">2014-12-20T21:17:50.313000Z</td>
+<td align="left">https://swapi.co/api/people/4/</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Leia Organa</td>
+<td align="right">150</td>
+<td align="right">49</td>
+<td align="left">brown</td>
+<td align="left">light</td>
+<td align="left">brown</td>
+<td align="left">19BBY</td>
+<td align="left">female</td>
+<td align="left">2</td>
+<td align="left">2,6,3,1,7</td>
+<td align="left">1</td>
+<td align="left">30</td>
+<td align="left">30</td>
+<td align="left">2014-12-10T15:20:09.791000Z</td>
+<td align="left">2014-12-20T21:17:50.315000Z</td>
+<td align="left">https://swapi.co/api/people/5/</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Owen Lars</td>
+<td align="right">178</td>
+<td align="right">120</td>
+<td align="left">brown, grey</td>
+<td align="left">light</td>
+<td align="left">blue</td>
+<td align="left">52BBY</td>
+<td align="left">male</td>
+<td align="left">1</td>
+<td align="left">5,6,1</td>
+<td align="left">1</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-12-10T15:52:14.024000Z</td>
+<td align="left">2014-12-20T21:17:50.317000Z</td>
+<td align="left">https://swapi.co/api/people/6/</td>
+<td align="right">6</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+ <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXNwZWNpZV90aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKVxuYGBgIn0= --></p>
+<pre class="r"><code>especie_ti %&gt;% head() %&gt;% knitr::kable()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MTYsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFCbzFXVFhMYk5oU21KTXVPNU5xalRMcnBkRkYzMDJ3Z2lnQUo4R2VaeVV5elRqM1ROQnNQUk1JaXhoVEpJYWtxNnFxTEhxRG42TG9uNlNsNmhpNlNBaFJBaVlqVldpTUNlQS9mKzhFSEFvOXZYNzlEMDNkVHk3S0cxbWc4c0lZak1Ud2JpbVpnblZrVDJYK3dyTkVMTVppcDUxeE5qTjlzMWpUWHd1dXE0SWtTTG40c2lnZk9tQkxQM3hZSjc1Qm5ielpObzhiWFB4VUpmVm5mMUNXTE9hdU5BT2RydWw3VFRFbFRXalg4bnNlODAvVG5uOVVzYjdoNGxEeFowYnFwaXJKSURIZy9pR24yZi9La1ltWERzOE42VGh0WTFsVWJ5TEwrL05WcWYzK0o1dzlCS1JEOUt5T1JiMk82aVdrdEhJT2JaVWJqQjNDanBKVFhKYzE1TEtOL0VqOU41S3FpT3pXK1hGV010WVliemZwenJhcUtyZWlhTHVFck5iRmpXVlpzalN5K1dtWkZuckRPVEdWU3NjU0kvb1dhYVhIZG5JblpPOW1tdkdGR29PKzZBQnNSVGFXVTBsOVkxa283c2ZyMWtsV0d4NWM5K0g0RlhhNnJJa3VrV2lhcjNzbzJTYzJSaGgvbXY5U1dCaU42M3o3czkyM3crNzRmL1MyZTM0eUZERUlqeHlIMDlBaTUzZWlnQ3d3SDE5OVRrV1hENDV0WFlzUE5YWjcra080cXpyZmlSSjNBcXpNbmp4V3IyV2VncFhKNkhISUpnUWN3SU1BSElZQU9nQkJBQktBSFlBQmdDQkFFQ0FHRUFTSUFCUUNGd0VYQTlZRG5BZ3dCY1FBUkxRS0VBT0lERWdBU0F0OERBUVNCYURFSUNIQ3hKbDBZQXVGQ05MN2VGQ2dFcHlNTGR5UFNVZVFZK1Y0aGtTa1dPUXZQQVA2WGNpS1Z4NHFCSG94NklHVm54UGthT2RDYlF6U0h6aTEwSTR3aUNHMU1mTWR4M2o4R3dSRWs0bThqSEo2Q2tNanpJaGZhWGtCT1Fmekl3UkVpdHVmRDB4Q0lJdXpZbmtROEFzRzNZaDc1RVVKMjRPL1QvWHhsZU80SXRIL3JrQWlIRWNaMmdCM2l3L2NuSVo1ckJ5VEVLREFnY080NnR3aEd5STBjMTNaOEQ0YzlDSms3L2h5R2trS1JrNEJBVEx3K3BFMGJ0VjVjUVJHeW9mY29QMzFJOE1qS3ZrbWJwcXlqeGFMZTBwTGJjYkVRM1VKVmxBVmNQQW1Hbmdaem53YnpuZ2JEVDRPUnhkR05OSkRuUTc3TnNnREl3N1RYOXlyMk9LZnJycGpPZExXUVNuMDV4Qm10YTFsTWFjTUxYUmN1RTFielZYNnN1cVkvczRxdTJGM0srQ3JWRmU2eWZ1RDVYVnhrUlZWclZVcDUxVmROMlk3MU5UUHRMZVAzVEpZMGZSelRZczIyUlpYcGEvbFpSdlBWUmlCMTVTNVpVV1phR3QvemJLMTlYc1FWbzAxM29aK3poQitrMGFicXZoNTRjc2YyakJwc1RVUUpzRFZqa3VhaHZPekZCZnlQU1d2TG1xSlZLNmNKYmFoOVgwbHlMZXVqWVhKUmxKSk5ZVFI4b1RicjJIaFFHWXJaSnBlWkpQTTQzZVFQYzFFMFJBUzE2NVpLYjZEZUJEMmU3V01PUHlsZjQ0NktmTVh6anJTTUxwa200MXBXUGJsaXU2eDQ5K0V5RmRyYWJvcm04TWtsdGs5cjJzVlpILzhGdmhWdWdqQUtBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["classification"],"name":[2],"type":["chr"],"align":["left"]},{"label":["designation"],"name":[3],"type":["chr"],"align":["left"]},{"label":["average_height"],"name":[4],"type":["int"],"align":["right"]},{"label":["skin_colors"],"name":[5],"type":["chr"],"align":["left"]},{"label":["hair_colors"],"name":[6],"type":["chr"],"align":["left"]},{"label":["eye_colors"],"name":[7],"type":["chr"],"align":["left"]},{"label":["average_lifespan"],"name":[8],"type":["int"],"align":["right"]},{"label":["homeworld"],"name":[9],"type":["chr"],"align":["left"]},{"label":["language"],"name":[10],"type":["chr"],"align":["left"]},{"label":["people"],"name":[11],"type":["chr"],"align":["left"]},{"label":["films"],"name":[12],"type":["chr"],"align":["left"]},{"label":["created"],"name":[13],"type":["chr"],"align":["left"]},{"label":["edited"],"name":[14],"type":["chr"],"align":["left"]},{"label":["url"],"name":[15],"type":["chr"],"align":["left"]},{"label":["id_especie"],"name":[16],"type":["int"],"align":["right"]}],"data":[{"1":"Human","2":"mammal","3":"sentient","4":"180","5":"caucasian, black, asian, hispanic","6":"blonde, brown, black, red","7":"brown, blue, green, hazel, grey, amber","8":"120","9":"9","10":"Galactic Basic","11":"1,4,5,6,7,9,10,11,12,14,18,19,21,22,25,26,28,29,32,34,43,51,60,61,62,66,67,68,69,74,81,84,85,86,35","12":"2,7,5,4,6,3,1","13":"2014-12-10T13:52:11.567000Z","14":"2015-04-17T06:59:55.850671Z","15":"https://swapi.co/api/species/1/","16":"1"},{"1":"Droid","2":"artificial","3":"sentient","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"2,3,8,23,87","12":"2,7,5,4,6,3,1","13":"2014-12-10T15:16:16.259000Z","14":"2015-04-17T06:59:43.869528Z","15":"https://swapi.co/api/species/2/","16":"2"},{"1":"Wookiee","2":"mammal","3":"sentient","4":"210","5":"gray","6":"black, brown","7":"blue, green, yellow, brown, golden, red","8":"400","9":"14","10":"Shyriiwook","11":"13,80","12":"2,7,6,3,1","13":"2014-12-10T16:44:31.486000Z","14":"2015-01-30T21:23:03.074598Z","15":"https://swapi.co/api/species/3/","16":"3"},{"1":"Rodian","2":"sentient","3":"reptilian","4":"170","5":"green, blue","6":"NA","7":"black","8":"NA","9":"23","10":"Galactic Basic","11":"15","12":"1","13":"2014-12-10T17:05:26.471000Z","14":"2016-07-19T13:27:03.156498Z","15":"https://swapi.co/api/species/4/","16":"4"},{"1":"Hutt","2":"gastropod","3":"sentient","4":"300","5":"green, brown, tan","6":"NA","7":"yellow, red","8":"1000","9":"24","10":"Huttese","11":"16","12":"3,1","13":"2014-12-10T17:12:50.410000Z","14":"2014-12-20T21:36:42.146000Z","15":"https://swapi.co/api/species/5/","16":"5"},{"1":"Yoda's species","2":"mammal","3":"sentient","4":"66","5":"green, yellow","6":"brown, white","7":"brown, green, yellow","8":"900","9":"28","10":"Galactic basic","11":"20","12":"2,5,4,6,3","13":"2014-12-15T12:27:22.877000Z","14":"2014-12-20T21:36:42.148000Z","15":"https://swapi.co/api/species/6/","16":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[16]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxhbmV0YV90aSAlPiUgaGVhZCgpXG5gYGAifQ== -->
-<pre class="r"><code>planeta_ti %&gt;% head()</code></pre>
+<p>
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table style="width:100%;">
+<colgroup>
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="8%" />
+<col width="6%" />
+<col width="9%" />
+<col width="4%" />
+<col width="2%" />
+<col width="3%" />
+<col width="23%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="7%" />
+<col width="2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">classification</th>
+<th align="left">designation</th>
+<th align="right">average_height</th>
+<th align="left">skin_colors</th>
+<th align="left">hair_colors</th>
+<th align="left">eye_colors</th>
+<th align="right">average_lifespan</th>
+<th align="left">homeworld</th>
+<th align="left">language</th>
+<th align="left">people</th>
+<th align="left">films</th>
+<th align="left">created</th>
+<th align="left">edited</th>
+<th align="left">url</th>
+<th align="right">id_especie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Human</td>
+<td align="left">mammal</td>
+<td align="left">sentient</td>
+<td align="right">180</td>
+<td align="left">caucasian, black, asian, hispanic</td>
+<td align="left">blonde, brown, black, red</td>
+<td align="left">brown, blue, green, hazel, grey, amber</td>
+<td align="right">120</td>
+<td align="left">9</td>
+<td align="left">Galactic Basic</td>
+<td align="left">1,4,5,6,7,9,10,11,12,14,18,19,21,22,25,26,28,29,32,34,43,51,60,61,62,66,67,68,69,74,81,84,85,86,35</td>
+<td align="left">2,7,5,4,6,3,1</td>
+<td align="left">2014-12-10T13:52:11.567000Z</td>
+<td align="left">2015-04-17T06:59:55.850671Z</td>
+<td align="left">https://swapi.co/api/species/1/</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Droid</td>
+<td align="left">artificial</td>
+<td align="left">sentient</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2,3,8,23,87</td>
+<td align="left">2,7,5,4,6,3,1</td>
+<td align="left">2014-12-10T15:16:16.259000Z</td>
+<td align="left">2015-04-17T06:59:43.869528Z</td>
+<td align="left">https://swapi.co/api/species/2/</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Wookiee</td>
+<td align="left">mammal</td>
+<td align="left">sentient</td>
+<td align="right">210</td>
+<td align="left">gray</td>
+<td align="left">black, brown</td>
+<td align="left">blue, green, yellow, brown, golden, red</td>
+<td align="right">400</td>
+<td align="left">14</td>
+<td align="left">Shyriiwook</td>
+<td align="left">13,80</td>
+<td align="left">2,7,6,3,1</td>
+<td align="left">2014-12-10T16:44:31.486000Z</td>
+<td align="left">2015-01-30T21:23:03.074598Z</td>
+<td align="left">https://swapi.co/api/species/3/</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Rodian</td>
+<td align="left">sentient</td>
+<td align="left">reptilian</td>
+<td align="right">170</td>
+<td align="left">green, blue</td>
+<td align="left">NA</td>
+<td align="left">black</td>
+<td align="right">NA</td>
+<td align="left">23</td>
+<td align="left">Galactic Basic</td>
+<td align="left">15</td>
+<td align="left">1</td>
+<td align="left">2014-12-10T17:05:26.471000Z</td>
+<td align="left">2016-07-19T13:27:03.156498Z</td>
+<td align="left">https://swapi.co/api/species/4/</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Hutt</td>
+<td align="left">gastropod</td>
+<td align="left">sentient</td>
+<td align="right">300</td>
+<td align="left">green, brown, tan</td>
+<td align="left">NA</td>
+<td align="left">yellow, red</td>
+<td align="right">1000</td>
+<td align="left">24</td>
+<td align="left">Huttese</td>
+<td align="left">16</td>
+<td align="left">3,1</td>
+<td align="left">2014-12-10T17:12:50.410000Z</td>
+<td align="left">2014-12-20T21:36:42.146000Z</td>
+<td align="left">https://swapi.co/api/species/5/</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Yoda's species</td>
+<td align="left">mammal</td>
+<td align="left">sentient</td>
+<td align="right">66</td>
+<td align="left">green, yellow</td>
+<td align="left">brown, white</td>
+<td align="left">brown, green, yellow</td>
+<td align="right">900</td>
+<td align="left">28</td>
+<td align="left">Galactic basic</td>
+<td align="left">20</td>
+<td align="left">2,5,4,6,3</td>
+<td align="left">2014-12-15T12:27:22.877000Z</td>
+<td align="left">2014-12-20T21:36:42.148000Z</td>
+<td align="left">https://swapi.co/api/species/6/</td>
+<td align="right">6</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+ <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxhbmV0YV90aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKVxuYGBgIn0= --></p>
+<pre class="r"><code>planeta_ti %&gt;% head() %&gt;% knitr::kable()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MTUsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFCcFZWelcvYk5oU243VGlwalNZcEZtd2RzQUVUQ214TEFVWVdaY2tmT3ExckQ5dGxoeUVidXUwUU1CTHRjSlZKZ2FLU2RhZitBN3YxVCtxeHAyS0hYWGZiY2FjZGRtajNhSk4ycktTcEorQ0o3ejMrK0w1SVBuNzc2SEhZZmR4RkNEVlJxOTFBelJhd1cwMzROZEFXNnBqeEY0UmFCOERzQTkwQjJyWVR0NDZwbHBJTDV1UUhlY1lVcGNMSlA5QnpMcnl2djdmeTFsZFNuMWwrNXhHZHlsUHF4TzB2V1Zsd0FkenUzQUZDZDRFK3RIVFgwdTNWZkNNQXloRjY3eFVFL2ludzN5RjA4TTlxL3ZCUGhJTGZFZnI4RDRRKzloQzY5d0kxWHY1ZFMyQ0xLcDVadnFQWnJJRG90Y3ZtWUtuQW5sYXk0Q25OWGJRVEpYOWxMczMyckZKUG5sNDFzKzZyUzd4U1U1RlJsZjBQelczaVg5RzF2dWs5c094bnhJKzl3N0pTRTVxeSs5aGJZYjNEaDdtc011OGgxMC92MTBMWnpsakpsTGJTKzFORnl6S0haU1gyWnJJU21uSlJ1aUw4WElscERoVlFvSnhJeFVydHB1N3BTbVNLWW8rbnpFdnBPYnUwSE9CaXloeHlyN3lnc3dKN0MxdE8yNW5TMHB0eUt2U2xYVzhBSFpxakE1VFpFUzNuVzd0ZlhNVFBUUW4rZWdaL1EraW4zNTdWMHZ1QTRCQkhlSUNIZUlUSG1CQWM5ZkVnZEFjdnhvTVJIaEVUd1J2NHJvd0xXRE1jMU14MjRyblJQaVp1SHdaTHRyRmtuSnQyYUxBcjdicXRqOEtBUkVja1BBckd4NlNmeEVFU2pmMUJSSUlnK0xFT0ljRXhJVWsvVHFLUkh3M0hOMENHQ1JuN0pJcHVnSXdUMHZmSC9Sc2dVWmlFb1I4YlAyK0ZRTVN4SDBZTHlGc3lDOGx4Q0dtTmtpRHl5VEFlRGtkWHJJV0JnY1NqaEVCbTRiVU8xeUhYMW1jZDBuODNKSDQzWkhoTlpwK2NhVjJVU2E4SHA3bmdmaXA3TVBRS3VEaE1sejNTMndnV2JnYnJid2FMTm9QRm04RUd2ZHBGTkkvQS9EVXc1M21oWDNzWTJvTE80RG92eXJUdmVxcFJXbjVmU1UwMWwrSUVXaUtYcm9IdFNYWEtOYzNYdGJjeURpczFVKzZpcGptZnJkcnhEclNwYzJobVRnU2c2VWxXM0xVOThPU0NyaXgwQzFsVStUd0FkNGVoZ2ZHTWlXVVRhMDk0UGl1WEhoV0Q1UzZnYlpieGxkU3FsR3YvWFo2ZExJcEdheFhwS0huaHU2cVlValpOYzRLdThtKzlkR2tPVGRlV3ppbTdHZFhVbnloVFFJUmUxNWJzeU1Ka0FvdWFCM1pETGk5dXFKcmlUaVZNSk5sUmVsYUpKMGRoWkR6WW5YVXR0V0YzMi9IN0M1L05OOVpXZTFrS01WMjk4KzJjbmpKWGpEMUllWjZ4WHlndTNLUFNCVzNwYTlqK1pkRlNtVHZOUERuMCtqOWJKTVBLZXdnQUFBPT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["rotation_period"],"name":[2],"type":["int"],"align":["right"]},{"label":["orbital_period"],"name":[3],"type":["int"],"align":["right"]},{"label":["diameter"],"name":[4],"type":["int"],"align":["right"]},{"label":["climate"],"name":[5],"type":["chr"],"align":["left"]},{"label":["gravity"],"name":[6],"type":["chr"],"align":["left"]},{"label":["terrain"],"name":[7],"type":["chr"],"align":["left"]},{"label":["surface_water"],"name":[8],"type":["int"],"align":["right"]},{"label":["population"],"name":[9],"type":["int"],"align":["right"]},{"label":["residents"],"name":[10],"type":["chr"],"align":["left"]},{"label":["films"],"name":[11],"type":["chr"],"align":["left"]},{"label":["created"],"name":[12],"type":["chr"],"align":["left"]},{"label":["edited"],"name":[13],"type":["chr"],"align":["left"]},{"label":["url"],"name":[14],"type":["chr"],"align":["left"]},{"label":["id_planeta"],"name":[15],"type":["int"],"align":["right"]}],"data":[{"1":"Tatooine","2":"23","3":"304","4":"10465","5":"arid","6":"1 standard","7":"desert","8":"1","9":"200000","10":"1,2,4,6,7,8,9,11,43,62","11":"5,4,6,3,1","12":"2014-12-09T13:50:49.641000Z","13":"2014-12-21T20:48:04.175778Z","14":"https://swapi.co/api/planets/1/","15":"1"},{"1":"Alderaan","2":"24","3":"364","4":"12500","5":"temperate","6":"1 standard","7":"grasslands, mountains","8":"40","9":"2000000000","10":"5,68,81","11":"6,1","12":"2014-12-10T11:35:48.479000Z","13":"2014-12-20T20:58:18.420000Z","14":"https://swapi.co/api/planets/2/","15":"2"},{"1":"Yavin IV","2":"24","3":"4818","4":"10200","5":"temperate, tropical","6":"1 standard","7":"jungle, rainforests","8":"8","9":"1000","10":"NA","11":"1","12":"2014-12-10T11:37:19.144000Z","13":"2014-12-20T20:58:18.421000Z","14":"https://swapi.co/api/planets/3/","15":"3"},{"1":"Hoth","2":"23","3":"549","4":"7200","5":"frozen","6":"1.1 standard","7":"tundra, ice caves, mountain ranges","8":"100","9":"NA","10":"NA","11":"2","12":"2014-12-10T11:39:13.934000Z","13":"2014-12-20T20:58:18.423000Z","14":"https://swapi.co/api/planets/4/","15":"4"},{"1":"Dagobah","2":"23","3":"341","4":"8900","5":"murky","6":"N/A","7":"swamp, jungles","8":"8","9":"NA","10":"NA","11":"2,6,3","12":"2014-12-10T11:42:22.590000Z","13":"2014-12-20T20:58:18.425000Z","14":"https://swapi.co/api/planets/5/","15":"5"},{"1":"Bespin","2":"12","3":"5110","4":"118000","5":"temperate","6":"1.5 (surface), 1 standard (Cloud City)","7":"gas giant","8":"0","9":"6000000","10":"26","11":"2","12":"2014-12-10T11:43:55.240000Z","13":"2014-12-20T20:58:18.427000Z","14":"https://swapi.co/api/planets/6/","15":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[15]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table style="width:100%;">
+<colgroup>
+<col width="3%" />
+<col width="5%" />
+<col width="5%" />
+<col width="3%" />
+<col width="6%" />
+<col width="12%" />
+<col width="11%" />
+<col width="4%" />
+<col width="3%" />
+<col width="7%" />
+<col width="3%" />
+<col width="9%" />
+<col width="9%" />
+<col width="10%" />
+<col width="3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="right">rotation_period</th>
+<th align="right">orbital_period</th>
+<th align="right">diameter</th>
+<th align="left">climate</th>
+<th align="left">gravity</th>
+<th align="left">terrain</th>
+<th align="right">surface_water</th>
+<th align="right">population</th>
+<th align="left">residents</th>
+<th align="left">films</th>
+<th align="left">created</th>
+<th align="left">edited</th>
+<th align="left">url</th>
+<th align="right">id_planeta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Tatooine</td>
+<td align="right">23</td>
+<td align="right">304</td>
+<td align="right">10465</td>
+<td align="left">arid</td>
+<td align="left">1 standard</td>
+<td align="left">desert</td>
+<td align="right">1</td>
+<td align="right">2e+05</td>
+<td align="left">1,2,4,6,7,8,9,11,43,62</td>
+<td align="left">5,4,6,3,1</td>
+<td align="left">2014-12-09T13:50:49.641000Z</td>
+<td align="left">2014-12-21T20:48:04.175778Z</td>
+<td align="left">https://swapi.co/api/planets/1/</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Alderaan</td>
+<td align="right">24</td>
+<td align="right">364</td>
+<td align="right">12500</td>
+<td align="left">temperate</td>
+<td align="left">1 standard</td>
+<td align="left">grasslands, mountains</td>
+<td align="right">40</td>
+<td align="right">2e+09</td>
+<td align="left">5,68,81</td>
+<td align="left">6,1</td>
+<td align="left">2014-12-10T11:35:48.479000Z</td>
+<td align="left">2014-12-20T20:58:18.420000Z</td>
+<td align="left">https://swapi.co/api/planets/2/</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Yavin IV</td>
+<td align="right">24</td>
+<td align="right">4818</td>
+<td align="right">10200</td>
+<td align="left">temperate, tropical</td>
+<td align="left">1 standard</td>
+<td align="left">jungle, rainforests</td>
+<td align="right">8</td>
+<td align="right">1e+03</td>
+<td align="left">NA</td>
+<td align="left">1</td>
+<td align="left">2014-12-10T11:37:19.144000Z</td>
+<td align="left">2014-12-20T20:58:18.421000Z</td>
+<td align="left">https://swapi.co/api/planets/3/</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Hoth</td>
+<td align="right">23</td>
+<td align="right">549</td>
+<td align="right">7200</td>
+<td align="left">frozen</td>
+<td align="left">1.1 standard</td>
+<td align="left">tundra, ice caves, mountain ranges</td>
+<td align="right">100</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">2</td>
+<td align="left">2014-12-10T11:39:13.934000Z</td>
+<td align="left">2014-12-20T20:58:18.423000Z</td>
+<td align="left">https://swapi.co/api/planets/4/</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Dagobah</td>
+<td align="right">23</td>
+<td align="right">341</td>
+<td align="right">8900</td>
+<td align="left">murky</td>
+<td align="left">N/A</td>
+<td align="left">swamp, jungles</td>
+<td align="right">8</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="left">2,6,3</td>
+<td align="left">2014-12-10T11:42:22.590000Z</td>
+<td align="left">2014-12-20T20:58:18.425000Z</td>
+<td align="left">https://swapi.co/api/planets/5/</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Bespin</td>
+<td align="right">12</td>
+<td align="right">5110</td>
+<td align="right">118000</td>
+<td align="left">temperate</td>
+<td align="left">1.5 (surface), 1 standard (Cloud City)</td>
+<td align="left">gas giant</td>
+<td align="right">0</td>
+<td align="right">6e+06</td>
+<td align="left">26</td>
+<td align="left">2</td>
+<td align="left">2014-12-10T11:43:55.240000Z</td>
+<td align="left">2014-12-20T20:58:18.427000Z</td>
+<td align="left">https://swapi.co/api/planets/6/</td>
+<td align="right">6</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
 <div id="conclusiones" class="section level2">
 <h2>Conclusiones</h2>
-<p>Sin duda alguna la estructuración de una base de datos en la ciencia de datos es lo menos “glamuroso” sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.</p>
+<p>Sin duda alguna la ingeniería de datos (data engineering) dentro de la ciencia de datos es lo menos “glamuroso” sin embargo es el paso mas importante ya que sin datos que analizar, de nada sirve el ultimo algoritmo de deeplearning, los datos en la vida real no se encuentran estructurados sin embargo aquí se mostraron formas para lograr esto, iniciando por una consulta de una API, modificando documentos Json hasta pasando por expresiones regulares y manejos de NAs incluso intentar explicar el conflicto del número en las películas de star wars.</p>
 <p>Te invito a que por tu cuenta hagas la solicitud a <em>films</em>, <em>starships</em>, <em>vehicles</em>. De tal manera que veas lo fácil que es!</p>
 <p>Fuentes:</p>
 <p><a href="https://www.tutorialspoint.com/r/r_json_files.htm" class="uri">https://www.tutorialspoint.com/r/r_json_files.htm</a> <a href="https://github.com/Ironholds/rwars" class="uri">https://github.com/Ironholds/rwars</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6DQogIG1kX2RvY3VtZW50Og0KICAgIHZhcmlhbnQ6IG1hcmtkb3duX2dpdGh1Yg0KICBodG1sX25vdGVib29rOiBudWxsDQogIGh0bWxfZG9jdW1lbnQ6DQogICAgZGZfcHJpbnQ6IHBhZ2VkDQogIHBkZl9kb2N1bWVudDogZGVmYXVsdA0KLS0tDQoNCk5vcm1hbG1lbnRlIGN1YW5kbyB1bm8gc2UgZW5jdWVudHJhIHRyYWJhamFuZG8gY29uIGRhdG9zIG5vIHNlIGVuY3VlbnRyYW4gb3JnYW5pemFkb3MgbyBlc3RydWN0dXJhZG9zLCB5IGxhIG1heW9yIHBhcnRlIGRlbCB0aWVtcG8gcmFkaWNhIGVuIGxhIGVzdHJ1Y3R1cmFjacOzbiBkZSBlc3RvcywgcG9yIGxvIHF1ZSBhIGNvbnRpbnVhY2nDs24gdmVyZW1vcyBjb21vOg0KDQoNCisgU29saWNpdGFyIGRhdG9zIGRlIHVuYSBBUEl3ZWIsIHlhIHF1ZSBlcyBub3JtYWwgcXVlIG11Y2hvcyBkYXRvcyBzZSBlbnRyZWd1ZW4gZGUgZXN0YSBtYW5lcmENCisgRGFyIGVzdHJ1Y3R1cmEgYSBkYXRvcyBlbiBmb3JtYXRvIGpzb24gcGFyYSBwb2RlciBhbmFsaXphcmxvcywgeWEgcXVlIG11Y2hhcyBkZSBsYXMgaGVycmFtaWVudGFzIGVzdGFkw61zdGljYXMgZnVuY2lvbmFuIGNvbiBkYXRhZnJhbWVzDQoNCkhvcmEgZGUgZW5zdWNpYXJzZSBsYXMgbWFub3MhDQoNCg0KUHJpbWVybyBjYXJnYXJlbW9zIGxhcyBsaWJyZXLDrWFzIG5lY2VzYXJpYXMNCmBgYHtyfQ0KIyBFbiBjYXNvIGRlIG5vIHRlbmVyIGxvcyBwYXF1ZXRlcyBuZWNlc2FyaW9zIGRlYmVtb3MgZGUgaW5zdGFsYXJsb3MgY29uIGxvcyBzaWd1aWVudGVzIGNvbWFuZG9zDQojIGluc3RhbGwucGFja2FnZXMoYygidGlkeXZlcnNlIiwicmpzb24iLCJodHRyIikpDQoNCmxpYnJhcnkodGlkeXZlcnNlKSAjRXN0cnVjdHVyYWNpw7NuIGRlIGRhdG9zDQpsaWJyYXJ5KHJqc29uKSAgICAgI0xlY3R1cmEgZGUgZm9ybWF0byBqc29uDQpsaWJyYXJ5KGh0dHIpICAgICAgI0VzdGF0dXMgZGUgbGEgY29uZXhpw7NuIGEgbGEgYXBpDQpgYGANCg0KTGEgYXBpIGRvbmRlIGhhcmVtb3MgbGEgY29uZXhpw7NuIGVzIGxhIGRlIFtodHRwczovL3N3YXBpLmNvL10oaHR0cHM6Ly9zd2FwaS5jby8pIGxhIGN1YWwgdGllbmUgdW5hIGJhc2UgZGUgZGF0b3MgZGUgbG9zIHBlcnNvbmFqZXMsIHBsYW5ldGFzLCByYXphcyBldGMuIERlbCB1bml2ZXJzbyBkZSBTdGFyIFdhcnMuDQoNClByaW1lcm8gdmVyZW1vcyBkZSBxdWUgbWFuZXJhIGVzdMOhbiBlc3RydWN0dXJhZG9zIGxvcyBkYXRvcywgbm9zIGFwb3lhcmVtb3MgZW4gbGEgW2RvY3VtZW50YWNpw7NuXShodHRwczovL3N3YXBpLmNvL2RvY3VtZW50YXRpb24pLg0KTmVjZXNpdGFyZW1vcyBlc3RhIGluZm9ybWFjacOzbiBwcmluY2lwYWxtZW50ZSBwYXJhIHNhYmVyIGN1YW50b3MgZWxlbWVudG9zIGNvbnRpZW5lIGNhZGEgYmFzZQ0KDQpgYGB7cn0NCmpzb25fZmlsZSA8LSAiaHR0cHM6Ly9zd2FwaS5jby9hcGkvcGVvcGxlLz9wYWdlPTEmZm9ybWF0PWpzb24iDQpqc29uX2RhdGEgPC0gZnJvbUpTT04oZmlsZT1qc29uX2ZpbGUpDQoNCm5hbWVzKGpzb25fZGF0YSkNCg0KYGBgDQoNCkRlc3B1ZXMgZGUgY29uc3VsdGFyIGxhIGFwaSBvYnNlcnZhbW9zIGN1YW50b3MgcGVyc29uYWplcyBleGlzdGVuDQoNCmBgYHtyfQ0KanNvbl9kYXRhJGNvdW50DQpgYGANCg0KQ29tbyB2ZW1vcyBzb24gODcgcG9yIGxvIHRhbnRvIGNvbnN1bHRhcmVtb3MgdW5vIGEgdW5vIGxhIHVybCBjb3JyZXNwb25kaWVudGUgYSBjYWRhIHBlcnNvbmFqZSwgeSBjcmVhcmVtb3MgbnVlc3RybyBwcm9waW8gZGF0YXNldCwgZGUgZXN0YSBtYW5lcmEgc2UgdGVuZHLDoSB1biBtZWpvciBjb250cm9sIGVuIGxhIGVsYWJvcmFjacOzbiBkZWwgZGF0YXNldA0KDQoNCmBgYHtyfQ0KDQoNCiMgQ3JlYW1vcyB1bmEgbGlzdGEgdmFjw61hIHBhcmEgaXIgbGxlbsOhbmRvbGENCmRhdGEgPC0gbGlzdCgpDQpjb3VudCA8LSBqc29uX2RhdGEkY291bnQNCg0KZm9yIChpIGluIDE6Y291bnQpIHsNCg0KI0NyZWFtb3MgbGEgdXJsDQogICAgdXJsIDwtIHN0cl9pbnRlcnAoImh0dHBzOi8vc3dhcGkuY28vYXBpL3Blb3BsZS8ke2l9Lz9mb3JtYXQ9anNvbiIpDQojVmVtb3MgZWwgZXN0YXR1cyBkZSBsYSBjb25leGnDs24NCiAgICByZXNwIDwtIEdFVCh1cmwpJHN0YXR1c19jb2RlDQoNCiAgaWYocmVzcCA9PSA0MDQpIG5leHQgI0VuIGNhc28gZGUgcXVlIGRpY2hhIGNvbmV4acOzbiBub3MgcmVncmVzZSB1biBlc3RhdHVzIDQwNCBwYXNhcmVtb3MgYSBsYSBzaWd1aWVudGUgc29saWNpdHVkDQoNCiMgR3VhcmRhbW9zIGVuIGxhIGxpc3RhDQogIGRhdGFbW2ldXSA8LSBmcm9tSlNPTihmaWxlPXVybCkNCg0KDQoNCiAgaWYoaSAlJSA1ID09IDAgfCBpID09IGNvdW50ICkgY2F0KHBhc3RlMChyb3VuZChpL2NvdW50KjEwMCksIiUgXG4iKSkgI1NvbG8gcGFyYSB2ZXIgZWwgcHJvZ3Jlc28NCg0KICB9DQoNCg0KYGBgDQoNCg0KVmVhbW9zIGxhIHByaW1lciBsaXN0YSBxdWUgY29udGllbmUgbG9zIGRhdG9zIGRlIEx1a2UgU2t5d2Fsa2VyDQoNCmBgYHtyfQ0KZGF0YVtbMV1dDQpgYGANCg0KTXV5IGJpZW4gdG9kbyBzYWxpw7MgY29tbyBlc3BlcsOhYmFtb3MsIGFob3JhIGNyZWFyZW1vcyB1bmEgZnVuY2nDs24gcGFyYSBoYWNlciBsYSBvYnRlbmNpw7NuIGRlIGRhdG9zIG1hcyByw6FwaWRhLCB5IHBvZGVyIGVsZWdpciBxdWUgY2F0ZWdvcsOtYSBzb2xpY2l0YXJlbW9zLg0KDQpgYGB7cn0NCg0KIHN3YXBpIDwtIGZ1bmN0aW9uKHJlc291cmNlKSB7DQoNCiAgdXJsX3Jlc291cmNlIDwtIHN0cl9pbnRlcnAoImh0dHBzOi8vc3dhcGkuY28vYXBpLyR7cmVzb3VyY2V9Lz9wYWdlPTEmZm9ybWF0PWpzb24iKQ0KICBqc29uX2RhdGEgPC0gZnJvbUpTT04oZmlsZT11cmxfcmVzb3VyY2UpDQoNCg0KICAgZGF0YSA8LSBsaXN0KCkNCiAgIGNvdW50IDwtIGpzb25fZGF0YSRjb3VudA0KDQogICAgICBmb3IgKGkgaW4gMTpjb3VudCkgew0KDQogICAgICAjQ3JlYW1vcyBsYSB1cmwNCiAgICAgICAgICB1cmwgPC0gc3RyX2ludGVycCgiaHR0cHM6Ly9zd2FwaS5jby9hcGkvJHtyZXNvdXJjZX0vJHtpfS8/Zm9ybWF0PWpzb24iKQ0KICAgICAgI1ZlbW9zIGVsIGVzdGF0dXMgZGUgbGEgY29uZXhpw7NuDQogICAgICAgICAgcmVzcCA8LSBHRVQodXJsKSRzdGF0dXNfY29kZQ0KDQogICAgICAgIGlmKHJlc3AgPT0gNDA0KSBuZXh0ICNFbiBjYXNvIGRlIHF1ZSBkaWNoYSBjb25leGnDs24gbm9zIHJlZ3Jlc2UgdW4gZXN0YXR1cyA0MDQgcGFzYXJlbW9zIGEgbGEgc2lndWllbnRlIHNvbGljaXR1ZA0KDQogICAgICAjIEd1YXJkYW1vcyBlbiBsYSBsaXN0YQ0KICAgICAgICBkYXRhW1tpXV0gPC0gZnJvbUpTT04oZmlsZT11cmwpDQoNCg0KICAgICAgICBpZihpICUlIDUgPT0gMCB8IGkgPT0gY291bnQgKSBjYXQocGFzdGUwKHJvdW5kKGkvY291bnQqMTAwKSwiJSBcbiIpKQ0KDQogICAgICB9DQoNCiAgICAgIGRhdGENCg0KICAgICAgIH0NCmBgYA0KDQpMYXMgcG9zaWJsZXMgY2F0ZWdvcsOtYXMgZGUgYsO6c3F1ZWRhIHNvbjoNCg0KDQorIGZpbG1zDQorIHBlb3BsZQ0KKyBwbGFuZXRzDQorIHNwZWNpZXMNCisgc3RhcnNoaXBzDQorIHZlaGljbGVzDQoNCkNvbWVuY2Vtb3MgY29uIGxvcyBwZXJzb25hamVzIChwZW9wbGUpDQoNCmBgYHtyfQ0KDQoNCnBlcnNvbmFqZXMgPC0gIHN3YXBpKCJwZW9wbGUiKQ0KDQpgYGANCg0KQWhvcmEgY29uIGxhcyByYXphcyhzcGVjaWVzKQ0KDQpgYGB7cn0NCmVzcGVjaWUgPC0gIHN3YXBpKCJzcGVjaWVzIikNCg0KYGBgDQoNClkgcG9yIMO6bHRpbW8gbG9zIHBsYW5ldGFzKHBsYW5ldHMpDQpgYGB7cn0NCnBsYW5ldGEgPC0gIHN3YXBpKCJwbGFuZXRzIikNCg0KYGBgDQoNCg0KWWEgdGVuZW1vcyBsb3MgZGF0b3MgcXVlIG5vcyBpbnRlcmVzYW4gc2luIGVtYmFyZ28gYWwgcHJvdmVuaXIgZGUgdW4gZm9ybWF0byBqc29uIG8gcG9yIGFzw60gZGVjaXJsbyAiTm9zcWwiLCB0ZW5kcmVtb3MgcHJvYmxlbWFzIGFsIGNvbnZlcnRpciBlbiB1bmEgZm9ybWEgZXN0cnVjdHVyYSBwb3IgbG8gdGFudG8gY2FtYmlhcmVtb3MgYWxndW5hcyBjb3Nhcw0KDQpgYGB7cn0NCiMgUGFzYW1vcyBkZSBsaXN0YSBhIGRhdGFmcmFtZQ0KDQoNCnBlcnNvbmFqZXNfZGYgPC0gIGRvLmNhbGwocmJpbmQsIHBlcnNvbmFqZXMpICU+JSAgZGF0YS5mcmFtZSgpDQoNCnBsYW5ldGFfZGYgPC0gZG8uY2FsbChyYmluZCxwbGFuZXRhKSAgJT4lICBkYXRhLmZyYW1lKCkNCg0KZXNwZWNpZV9kZiA8LSBkby5jYWxsKHJiaW5kLGVzcGVjaWUpICU+JSAgZGF0YS5mcmFtZSgpDQoNCmBgYA0KDQpTaSBvYnNlcnZhbW9zIHBvciBlamVtcGxvIGVsIGNhc28gZGUgTHVrZSBTa3l3YWxrZXIgdmVyZW1vcyBxdWUgZW4gbGEgY29sdW1uYSBkZSAqZmlsbXMqIHNlIGVuY3VlbnRyYW4gbGFzIHVybCBhIGNhZGEgdW5hIGRlIGxhcyBwZWzDrWN1bGFzIGVuIGxhcyBxdWUgYXBhcmVjZSwgc2luIGVtYmFyZ28gZXMgbWVqb3Igc29sbyBzYWJlciBlbCBudW1lcm8gZGUgbGEgcGVsw61jdWxhIHkgbm8gbGEgdXJsLCBkZSBtYW5lcmEgcXVlIHNlYSBtYXMgbGVnaWJsZS4NCg0KYGBge3J9DQpwZXJzb25hamVzX2RmJGZpbG1zW1sxXV0NCmBgYA0KDQoNClBvciBsbyB0YW50byBoYXJlbW9zIHVzbyBkZSBsYXMgZXhwcmVzaW9uZXMgcmVndWxhcmVzIHkgYWwgcGFxdWV0ZSBbc3RyaW5ncl0oaHR0cHM6Ly9yZXNvdXJjZXMucnN0dWRpby5jb20vcnN0dWRpby1jaGVhdHNoZWV0cy9zdHJpbmdyLWNoZWF0LXNoZWV0KSBpbmNsdWlkbyBlbiB0aWR5dmVyc2UNCg0KDQpDcmVhcmVtb3MgdW5hIGZ1bmNpw7NuIHF1ZSBlbGltaW5hcmEgdG9kb3MgbG9zIGNhcmFjdGVyZXMgZXhjZXB0byBsb3MgbsO6bWVyb3MNCmBgYHtyfQ0KDQpleHRyYWN0ICA8LSBmdW5jdGlvbih2YXJpYWJsZXMpIHsNCiAgbGFwcGx5KHZhcmlhYmxlcywgZnVuY3Rpb24oeCkoc3RyX3JlcGxhY2VfYWxsKHgsIlxcRCIsIiIpKSAlPiUgcGFzdGUwKGNvbGxhcHNlID0gIiwiKSkNCn0NCg0KDQpgYGANCg0KUmVlc2NyaWJpcmVtb3MgY2llcnRhcyB2YXJpYWJsZXMgYXBsaWNhbmRvIGxhIGZ1bmNpw7NuIGFudGVzIGhlY2hhLCBjcmVhcmVtb3MgbGEgdmFyaWFibGUgSUQgbGEgY3VhbCBlcyBlbCBuw7ptZXJvIGNvcnJlc3BvbmRpZW50ZSBhIGNhZGEgZWxlbWVudG8NCg0KYGBge3J9DQoNCnBlcnNvbmFqZXNfZGkgPC0gIHBlcnNvbmFqZXNfZGYgJT4lIG11dGF0ZShzcGVjaWVzID0gZXh0cmFjdChzcGVjaWVzKSwgZmlsbXMgPSAgZXh0cmFjdChmaWxtcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaG9tZXdvcmxkID0gZXh0cmFjdChob21ld29ybGQpLHZlaGljbGVzID0gZXh0cmFjdCh2ZWhpY2xlcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RhcnNoaXBzID0gZXh0cmFjdCh2ZWhpY2xlcyksaWRfcGVyc29uYWplcyA9IGV4dHJhY3QodXJsKSkNCg0KDQplc3BlY2llX2RpIDwtICBlc3BlY2llX2RmICU+JSBtdXRhdGUoaG9tZXdvcmxkID0gZXh0cmFjdChob21ld29ybGQpLCBwZW9wbGUgPSAgZXh0cmFjdChwZW9wbGUpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZpbG1zID0gIGV4dHJhY3QoZmlsbXMpLGlkX2VzcGVjaWUgPSBleHRyYWN0KHVybCkgKQ0KDQoNCnBsYW5ldGFfZGkgPC0gIHBsYW5ldGFfZGYgJT4lIG11dGF0ZShyZXNpZGVudHMgPSBleHRyYWN0KHJlc2lkZW50cyksZmlsbXMgPSAgZXh0cmFjdChmaWxtcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWRfcGxhbmV0YSA9IGV4dHJhY3QodXJsKSApDQoNCmBgYA0KDQpWZWFtb3MgYWhvcmENCmBgYHtyfQ0KcGVyc29uYWplc19kaSRmaWxtc1tbMV1dDQpgYGANCg0KTXV5IGJpZW4geWEgZXN0w6EgZW4gdW4gbWVqb3IgZm9ybWF0bywgZXMgaW1wb3J0YW50ZSBtZW5jaW9uYXIgcXVlIGxhcyBwZWzDrWN1bGFzIGVzdMOhbiBlbnVtZXJhZGFzIGRlIGFjdWVyZG8gYWwgb3JkZW4gY3Jvbm9sw7NnaWNvIGRlIGVzdHJlbm8gcG9yIGxvIHRhbnRvIGVsIG7Dum1lcm8gMSBoYWNlIHJlZmVyZW5jaWEgYSAiRXBpc29kaW8gNCAtIEEgTmV3IEhvcGUiIHkgbm8gYSAiRXBpc29kaW8gMSAtIFRoZSBQaGFudG9tIE1lbmFjZSIgKE9idmlhbWVudGUgZXN0byBubyBzZXJpYSBzdGFyIHdhcnMgc2luIGVsIGNvbmZsaWN0byBkZWwgb3JkZW4gZGUgbGFzIHBlbMOtY3VsYXMpDQoNClBlcmZlY3RvIGFob3JhIHNvbG8gcXVlZGEgY29udmVydGlyIHRvZG8gZW4gdW4gZGF0YWZyYW1lIGRlIHZlY3RvcmVzLCB5YSBxdWUgYWN0dWFsbWVudGUgc29uIGRhdGFmcmFtZXMgZGUgbGlzdGFzDQoNCmBgYHtyfQ0KDQpwZXJzb25hamVzX3RpIDwtICBwZXJzb25hamVzX2RpICAlPiUgbWFwX2Rmcih1bmxpc3QpDQoNCmVzcGVjaWVfdGkgPC0gIGVzcGVjaWVfZGkgJT4lIG1hcF9kZnIodW5saXN0KQ0KDQpwbGFuZXRhX3RpIDwtICBwbGFuZXRhX2RpICU+JSBtYXBfZGZyKHVubGlzdCkNCg0KDQpwZXJzb25hamVzX3RpICU+JSBoZWFkKCkNCmVzcGVjaWVfdGkgJT4lIGhlYWQoKQ0KcGxhbmV0YV90aSAlPiUgaGVhZCgpDQpgYGANCg0KQWhvcmEgZXMgbW9tZW50byBkZSBkYXJsZSB1biBmb3JtYXRvIGhvbW9nw6luZW8gYSBsb3MgTkFzICB5YSBxdWUgdGllbmVuIGxhIGZvcm1hIGRlICJuL2EiICJ1bmtub3duIiBvIHNpbXBsZW1lbnRlIGVzIHVuIGNhcmFjdGVyIHZhY8Otbw0KDQpgYGB7cn0NCnBlcnNvbmFqZXNfdGlbcGVyc29uYWplc190aSA9PSAibi9hInxwZXJzb25hamVzX3RpID09InVua25vd24ifHBlcnNvbmFqZXNfdGkgPT0iIl0gPC0gTkENCmVzcGVjaWVfdGlbZXNwZWNpZV90aSA9PSAibi9hInxlc3BlY2llX3RpID09InVua25vd24ifGVzcGVjaWVfdGkgPT0iIl0gPC0gTkENCnBsYW5ldGFfdGlbcGxhbmV0YV90aSA9PSAibi9hInxwbGFuZXRhX3RpID09InVua25vd24ifHBsYW5ldGFfdGkgPT0iIl0gPC0gTkENCg0KYGBgDQoNCg0KWSBhaG9yYSBlbCBwYXNvIGZpbmFsISBjb252ZXJ0aXIgbGFzIHZhcmlhYmxlcyBxdWUgaGFzdGEgZXN0ZSBtb21lbnRvIGVyYW4gZGVsIHRpcG8gY2FyYWN0ZXIgYSBpbnRlZ2VyDQoNCg0KYGBge3J9DQpwbGFuZXRhX3RpW2MoMiwzLDQsOCw5LDE1KV0gPC0gbGFwcGx5KHBsYW5ldGFfdGlbYygyLDMsNCw4LDksMTUpXSwgYXMuaW50ZWdlcikNCg0KZXNwZWNpZV90aVtjKDQsOCwxNildIDwtIGxhcHBseShlc3BlY2llX3RpW2MoNCw4LDE2KV0sIGFzLmludGVnZXIpDQoNCnBlcnNvbmFqZXNfdGlbYygyLDMsMTcpXSA8LSBsYXBwbHkocGVyc29uYWplc190aVtjKDIsMywxNyldLCBhcy5pbnRlZ2VyKQ0KYGBgDQoNCg0KWSBlc3RlIGVzIGVsIHJlc3VsdGFkbw0KDQoNCmBgYHtyfQ0KcGVyc29uYWplc190aSAlPiUgaGVhZCgpDQplc3BlY2llX3RpICU+JSBoZWFkKCkNCnBsYW5ldGFfdGkgJT4lIGhlYWQoKQ0KYGBgDQoNCg0KIyMgQ29uY2x1c2lvbmVzDQoNClNpbiBkdWRhIGFsZ3VuYSBsYSBlc3RydWN0dXJhY2nDs24gZGUgdW5hIGJhc2UgZGUgZGF0b3MgZW4gbGEgY2llbmNpYSBkZSBkYXRvcyBlcyBsbyBtZW5vcyAiZ2xhbXVyb3NvIiBzaW4gZW1iYXJnbyBlcyBlbCBwYXNvIG1hcyBpbXBvcnRhbnRlIHlhIHF1ZSBzaW4gZGF0b3MgcXVlIGFuYWxpemFyLCBkZSBuYWRhIHNpcnZlIGVsIHVsdGltbyBhbGdvcml0bW8gZGUgZGVlcGxlYXJuaW5nLCBsb3MgZGF0b3MgZW4gbGEgdmlkYSByZWFsIG5vIHNlIGVuY3VlbnRyYW4gZXN0cnVjdHVyYWRvcyBzaW4gZW1iYXJnbyBhcXXDrSBzZSBtb3N0cmFyb24gZm9ybWFzIHBhcmEgbG9ncmFyIGVzdG8sIGluaWNpYW5kbyBwb3IgdW5hIGNvbnN1bHRhIGRlIHVuYSBBUEksIG1vZGlmaWNhbmRvIGRvY3VtZW50b3MgSnNvbiBoYXN0YSBwYXNhbmRvIHBvciBleHByZXNpb25lcyByZWd1bGFyZXMgeSBtYW5lam9zIGRlIE5BcyBpbmNsdXNvIGludGVudGFyIGV4cGxpY2FyIGVsIGNvbmZsaWN0byBkZWwgbsO6bWVybyBlbiBsYXMgcGVsw61jdWxhcyBkZSBzdGFyIHdhcnMuDQoNCg0KVGUgaW52aXRvIGEgcXVlIHBvciB0dSBjdWVudGEgaGFnYXMgbGEgc29saWNpdHVkICBhICpmaWxtcyosICpzdGFyc2hpcHMqLCAqdmVoaWNsZXMqLiBEZSB0YWwgbWFuZXJhIHF1ZSB2ZWFzIGxvIGbDoWNpbCBxdWUgZXMhDQoNCg0KDQpGdWVudGVzOg0KDQpodHRwczovL3d3dy50dXRvcmlhbHNwb2ludC5jb20vci9yX2pzb25fZmlsZXMuaHRtDQpodHRwczovL2dpdGh1Yi5jb20vSXJvbmhvbGRzL3J3YXJzDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6DQogIG1kX2RvY3VtZW50Og0KICAgIHZhcmlhbnQ6IG1hcmtkb3duX2dpdGh1Yg0KICBodG1sX25vdGVib29rOiBudWxsDQogIGh0bWxfZG9jdW1lbnQ6DQogICAgZGZfcHJpbnQ6IHBhZ2VkDQogIHBkZl9kb2N1bWVudDogZGVmYXVsdA0KLS0tDQoNCk5vcm1hbG1lbnRlIGN1YW5kbyBub3MgZW5jb250cmFtb3MgdHJhYmFqYW5kbyBjb24gZGF0b3MgZW4gcG9jYXMgb2Nhc2lvbmVzIHNlIGVuY3VlbnRyYW4gb3JnYW5pemFkb3MgbyBlc3RydWN0dXJhZG9zLCB5IGxhIG1heW9yIHBhcnRlIGRlbCB0aWVtcG8gcmFkaWNhIGVuIGxhIGVzdHJ1Y3R1cmFjacOzbiBkZSBlc3RvcywgcG9yIGxvIHF1ZSBhIGNvbnRpbnVhY2nDs24gdmVyZW1vcyBjb21vOg0KDQoNCisgU29saWNpdGFyIGRhdG9zIGRlIHVuYSBBUEl3ZWIsIHlhIHF1ZSBlcyBub3JtYWwgcXVlIG11Y2hvcyBkYXRvcyBzZSBlbnRyZWd1ZW4gZGUgZXN0YSBtYW5lcmEuDQorIERhciBlc3RydWN0dXJhIGEgZGF0b3MgZW4gZm9ybWF0byBqc29uIHBhcmEgcG9kZXIgYW5hbGl6YXJsb3MsIHlhIHF1ZSBtdWNoYXMgZGUgbGFzIGhlcnJhbWllbnRhcyBlc3RhZMOtc3RpY2FzIGZ1bmNpb25hbiBjb24gZGF0YWZyYW1lcy4NCg0KIyMjIEhvcmEgZGUgZW5zdWNpYXJzZSBsYXMgbWFub3MhDQoNCg0KUHJpbWVybyBjYXJnYXJlbW9zIGxhcyBsaWJyZXLDrWFzIG5lY2VzYXJpYXMNCmBgYHtyIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQojIEVuIGNhc28gZGUgbm8gdGVuZXIgbG9zIHBhcXVldGVzIG5lY2VzYXJpb3MgZGViZW1vcyBkZSBpbnN0YWxhcmxvcyBjb24gbG9zIHNpZ3VpZW50ZXMgY29tYW5kb3MNCiMgaW5zdGFsbC5wYWNrYWdlcyhjKCJ0aWR5dmVyc2UiLCJyanNvbiIsImh0dHIiKSkNCg0KbGlicmFyeSh0aWR5dmVyc2UpICNFc3RydWN0dXJhY2nDs24gZGUgZGF0b3MNCmxpYnJhcnkocmpzb24pICAgICAjTGVjdHVyYSBkZSBmb3JtYXRvIGpzb24NCmxpYnJhcnkoaHR0cikgICAgICAjRXN0YXR1cyBkZSBsYSBjb25leGnDs24gYSBsYSBhcGkNCmBgYA0KDQpMYSBhcGkgZG9uZGUgaGFyZW1vcyBsYSBjb25leGnDs24gZXMgbGEgZGUgW2h0dHBzOi8vc3dhcGkuY28vXShodHRwczovL3N3YXBpLmNvLykgbGEgY3VhbCB0aWVuZSB1bmEgYmFzZSBkZSBkYXRvcyBkZSBsb3MgcGVyc29uYWplcywgcGxhbmV0YXMsIHJhemFzIGV0Yy4gRGVsIHVuaXZlcnNvIGRlIFN0YXIgV2Fycy4NCg0KUHJpbWVybyB2ZXJlbW9zIGRlIHF1ZSBtYW5lcmEgZXN0w6FuIGVzdHJ1Y3R1cmFkb3MgbG9zIGRhdG9zLCBub3MgYXBveWFyZW1vcyBlbiBsYSBbZG9jdW1lbnRhY2nDs25dKGh0dHBzOi8vc3dhcGkuY28vZG9jdW1lbnRhdGlvbikuDQpOZWNlc2l0YXJlbW9zIGVzdGEgaW5mb3JtYWNpw7NuIHByaW5jaXBhbG1lbnRlIHBhcmEgc2FiZXIgY3VhbnRvcyBlbGVtZW50b3MgY29udGllbmUgY2FkYSBiYXNlDQoNCmBgYHtyfQ0KanNvbl9maWxlIDwtICJodHRwczovL3N3YXBpLmNvL2FwaS9wZW9wbGUvP3BhZ2U9MSZmb3JtYXQ9anNvbiINCmpzb25fZGF0YSA8LSBmcm9tSlNPTihmaWxlPWpzb25fZmlsZSkNCg0KbmFtZXMoanNvbl9kYXRhKQ0KDQpgYGANCg0KRGVzcHXDqXMgZGUgY29uc3VsdGFyIGxhIGFwaSBvYnNlcnZhbW9zIGN1YW50b3MgcGVyc29uYWplcyBleGlzdGVuDQoNCmBgYHtyfQ0KanNvbl9kYXRhJGNvdW50DQpgYGANCg0KQ29tbyB2ZW1vcyBzb24gODcgcG9yIGxvIHRhbnRvIGNvbnN1bHRhcmVtb3MgdW5vIGEgdW5vIGxhIHVybCBjb3JyZXNwb25kaWVudGUgYSBjYWRhIHBlcnNvbmFqZSwgeSBjcmVhcmVtb3MgbnVlc3RybyBwcm9waW8gZGF0YXNldCwgZGUgZXN0YSBtYW5lcmEgc2UgdGVuZHLDoSB1biBtZWpvciBjb250cm9sIGVuIHN1IGVsYWJvcmFjacOzbg0KDQoNCmBgYHtyfQ0KDQoNCiMgQ3JlYW1vcyB1bmEgbGlzdGEgdmFjw61hIHBhcmEgaXIgbGxlbsOhbmRvbGENCmRhdGEgPC0gbGlzdCgpDQpjb3VudCA8LSBqc29uX2RhdGEkY291bnQNCg0KZm9yIChpIGluIDE6Y291bnQpIHsNCg0KI0NyZWFtb3MgbGEgdXJsDQogICAgdXJsIDwtIHN0cl9pbnRlcnAoImh0dHBzOi8vc3dhcGkuY28vYXBpL3Blb3BsZS8ke2l9Lz9mb3JtYXQ9anNvbiIpDQojVmVtb3MgZWwgZXN0YXR1cyBkZSBsYSBjb25leGnDs24NCiAgICByZXNwIDwtIEdFVCh1cmwpJHN0YXR1c19jb2RlDQoNCiAgaWYocmVzcCA9PSA0MDQpIG5leHQgI0VuIGNhc28gZGUgcXVlIGRpY2hhIGNvbmV4acOzbiBub3MgcmVncmVzZSB1biBlc3RhdHVzIDQwNCBwYXNhcmVtb3MgYSBsYSBzaWd1aWVudGUgc29saWNpdHVkDQoNCiMgR3VhcmRhbW9zIGVuIGxhIGxpc3RhDQogIGRhdGFbW2ldXSA8LSBmcm9tSlNPTihmaWxlPXVybCkNCg0KDQoNCiAgaWYoaSAlJSA1ID09IDAgfCBpID09IGNvdW50ICkgY2F0KHBhc3RlMChyb3VuZChpL2NvdW50KjEwMCksIiUgXG4iKSkgI1NvbG8gcGFyYSB2ZXIgZWwgcHJvZ3Jlc28NCg0KICB9DQoNCg0KYGBgDQoNCg0KVmVhbW9zIGxhIHByaW1lciBsaXN0YSBxdWUgY29udGllbmUgbG9zIGRhdG9zIGRlIEx1a2UgU2t5d2Fsa2VyDQoNCmBgYHtyfQ0KZGF0YVtbMV1dDQpgYGANCg0KTXV5IGJpZW4gdG9kbyBzYWxpw7MgY29tbyBlc3BlcsOhYmFtb3MsIGFob3JhIGNyZWFyZW1vcyB1bmEgZnVuY2nDs24gcGFyYSBoYWNlciBsYSBvYnRlbmNpw7NuIGRlIGRhdG9zIG1hcyByw6FwaWRhLCB5IHBvZGVyIGVsZWdpciBxdWUgY2F0ZWdvcsOtYSBzb2xpY2l0YXJlbW9zLg0KDQpgYGB7cn0NCg0KIHN3YXBpIDwtIGZ1bmN0aW9uKHJlc291cmNlKSB7DQoNCiAgdXJsX3Jlc291cmNlIDwtIHN0cl9pbnRlcnAoImh0dHBzOi8vc3dhcGkuY28vYXBpLyR7cmVzb3VyY2V9Lz9wYWdlPTEmZm9ybWF0PWpzb24iKQ0KICBqc29uX2RhdGEgPC0gZnJvbUpTT04oZmlsZT11cmxfcmVzb3VyY2UpDQoNCg0KICAgZGF0YSA8LSBsaXN0KCkNCiAgIGNvdW50IDwtIGpzb25fZGF0YSRjb3VudA0KDQogICAgICBmb3IgKGkgaW4gMTpjb3VudCkgew0KDQogICAgICAjQ3JlYW1vcyBsYSB1cmwNCiAgICAgICAgICB1cmwgPC0gc3RyX2ludGVycCgiaHR0cHM6Ly9zd2FwaS5jby9hcGkvJHtyZXNvdXJjZX0vJHtpfS8/Zm9ybWF0PWpzb24iKQ0KICAgICAgI1ZlbW9zIGVsIGVzdGF0dXMgZGUgbGEgY29uZXhpw7NuDQogICAgICAgICAgcmVzcCA8LSBHRVQodXJsKSRzdGF0dXNfY29kZQ0KDQogICAgICAgIGlmKHJlc3AgPT0gNDA0KSBuZXh0ICNFbiBjYXNvIGRlIHF1ZSBkaWNoYSBjb25leGnDs24gbm9zIHJlZ3Jlc2UgdW4gZXN0YXR1cyA0MDQgcGFzYXJlbW9zIGEgbGEgc2lndWllbnRlIHNvbGljaXR1ZA0KDQogICAgICAjIEd1YXJkYW1vcyBlbiBsYSBsaXN0YQ0KICAgICAgICBkYXRhW1tpXV0gPC0gZnJvbUpTT04oZmlsZT11cmwpDQoNCg0KICAgICAgICBpZihpICUlIDUgPT0gMCB8IGkgPT0gY291bnQgKSBjYXQocGFzdGUwKHJvdW5kKGkvY291bnQqMTAwKSwiJSBcbiIpKQ0KDQogICAgICB9DQoNCiAgICAgIGRhdGENCg0KICAgICAgIH0NCmBgYA0KDQpMYXMgcG9zaWJsZXMgY2F0ZWdvcsOtYXMgZGUgYsO6c3F1ZWRhIHNvbjoNCg0KDQorIGZpbG1zDQorIHBlb3BsZQ0KKyBwbGFuZXRzDQorIHNwZWNpZXMNCisgc3RhcnNoaXBzDQorIHZlaGljbGVzDQoNCkNvbWVuY2Vtb3MgY29uIGxvcyBwZXJzb25hamVzIChwZW9wbGUpDQoNCmBgYHtyfQ0KDQoNCnBlcnNvbmFqZXMgPC0gIHN3YXBpKCJwZW9wbGUiKQ0KDQpgYGANCg0KQWhvcmEgY29uIGxhcyByYXphcyhzcGVjaWVzKQ0KDQpgYGB7cn0NCmVzcGVjaWUgPC0gIHN3YXBpKCJzcGVjaWVzIikNCg0KYGBgDQoNClkgcG9yIMO6bHRpbW8gbG9zIHBsYW5ldGFzKHBsYW5ldHMpDQpgYGB7cn0NCnBsYW5ldGEgPC0gIHN3YXBpKCJwbGFuZXRzIikNCg0KYGBgDQoNCg0KWWEgdGVuZW1vcyBsb3MgZGF0b3MgcXVlIG5vcyBpbnRlcmVzYW4gc2luIGVtYmFyZ28gYWwgcHJvdmVuaXIgZGUgdW4gZm9ybWF0byBqc29uIG8gcG9yIGFzw60gZGVjaXJsbyAiTm9zcWwiLCB0ZW5kcmVtb3MgcHJvYmxlbWFzIGFsIGNvbnZlcnRpciBlbiB1bmEgZm9ybWEgZXN0cnVjdHVyYSBwb3IgdGFibGFzLCBwb3IgbG8gdGFudG8gY2FtYmlhcmVtb3MgYWxndW5hcyBjb3Nhcw0KDQpgYGB7cn0NCiMgUGFzYW1vcyBkZSBsaXN0YSBhIGRhdGFmcmFtZQ0KDQoNCnBlcnNvbmFqZXNfZGYgPC0gIGRvLmNhbGwocmJpbmQsIHBlcnNvbmFqZXMpICU+JSAgZGF0YS5mcmFtZSgpDQoNCnBsYW5ldGFfZGYgPC0gZG8uY2FsbChyYmluZCxwbGFuZXRhKSAgJT4lICBkYXRhLmZyYW1lKCkNCg0KZXNwZWNpZV9kZiA8LSBkby5jYWxsKHJiaW5kLGVzcGVjaWUpICU+JSAgZGF0YS5mcmFtZSgpDQoNCmBgYA0KDQpTaSBvYnNlcnZhbW9zIGVsIGNhc28gZGUgTHVrZSBTa3l3YWxrZXIgdmVyZW1vcyBxdWUgZW4gbGEgY29sdW1uYSBkZSAqZmlsbXMqIHNlIGVuY3VlbnRyYW4gbGFzIHVybCBhIGNhZGEgdW5hIGRlIGxhcyBwZWzDrWN1bGFzIGVuIGxhcyBxdWUgYXBhcmVjZSwgc2luIGVtYmFyZ28gZXMgbWVqb3Igc29sbyBzYWJlciBlbCBudW1lcm8gZGUgbGEgcGVsw61jdWxhIHkgbm8gbGEgdXJsLCBkZSBtYW5lcmEgcXVlIHNlYSBtYXMgbGVnaWJsZS4NCg0KYGBge3J9DQpwZXJzb25hamVzX2RmJGZpbG1zW1sxXV0NCmBgYA0KDQoNClBvciBsbyB0YW50byBoYXJlbW9zIHVzbyBkZSBsYXMgZXhwcmVzaW9uZXMgcmVndWxhcmVzIHkgYWwgcGFxdWV0ZSBbc3RyaW5ncl0oaHR0cHM6Ly9yZXNvdXJjZXMucnN0dWRpby5jb20vcnN0dWRpby1jaGVhdHNoZWV0cy9zdHJpbmdyLWNoZWF0LXNoZWV0KSBpbmNsdWlkbyBlbiB0aWR5dmVyc2UNCg0KDQpDcmVhcmVtb3MgdW5hIGZ1bmNpw7NuIHF1ZSBlbGltaW5hcmEgdG9kb3MgbG9zIGNhcmFjdGVyZXMgZXhjZXB0byBsb3MgbsO6bWVyb3MNCmBgYHtyfQ0KDQpleHRyYWN0ICA8LSBmdW5jdGlvbih2YXJpYWJsZXMpIHsNCiAgbGFwcGx5KHZhcmlhYmxlcywgZnVuY3Rpb24oeCkoc3RyX3JlcGxhY2VfYWxsKHgsIlxcRCIsIiIpKSAlPiUgcGFzdGUwKGNvbGxhcHNlID0gIiwiKSkNCn0NCg0KDQpgYGANCg0KUmVlc2NyaWJpcmVtb3MgY2llcnRhcyB2YXJpYWJsZXMgYXBsaWNhbmRvIGxhIGZ1bmNpw7NuIGFudGVzIGhlY2hhLCBjcmVhcmVtb3MgbGEgdmFyaWFibGUgSUQgbGEgY3VhbCBlcyBlbCBuw7ptZXJvIGNvcnJlc3BvbmRpZW50ZSBhIGNhZGEgZWxlbWVudG8NCg0KYGBge3J9DQoNCnBlcnNvbmFqZXNfZGkgPC0gIHBlcnNvbmFqZXNfZGYgJT4lIG11dGF0ZShzcGVjaWVzID0gZXh0cmFjdChzcGVjaWVzKSwgZmlsbXMgPSAgZXh0cmFjdChmaWxtcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaG9tZXdvcmxkID0gZXh0cmFjdChob21ld29ybGQpLHZlaGljbGVzID0gZXh0cmFjdCh2ZWhpY2xlcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RhcnNoaXBzID0gZXh0cmFjdCh2ZWhpY2xlcyksaWRfcGVyc29uYWplcyA9IGV4dHJhY3QodXJsKSkNCg0KDQplc3BlY2llX2RpIDwtICBlc3BlY2llX2RmICU+JSBtdXRhdGUoaG9tZXdvcmxkID0gZXh0cmFjdChob21ld29ybGQpLCBwZW9wbGUgPSAgZXh0cmFjdChwZW9wbGUpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZpbG1zID0gIGV4dHJhY3QoZmlsbXMpLGlkX2VzcGVjaWUgPSBleHRyYWN0KHVybCkgKQ0KDQoNCnBsYW5ldGFfZGkgPC0gIHBsYW5ldGFfZGYgJT4lIG11dGF0ZShyZXNpZGVudHMgPSBleHRyYWN0KHJlc2lkZW50cyksZmlsbXMgPSAgZXh0cmFjdChmaWxtcyksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWRfcGxhbmV0YSA9IGV4dHJhY3QodXJsKSApDQoNCmBgYA0KDQpWZWFtb3MgYWhvcmENCmBgYHtyfQ0KcGVyc29uYWplc19kaSRmaWxtc1tbMV1dDQpgYGANCg0KTXV5IGJpZW4geWEgZXN0w6EgZW4gdW4gbWVqb3IgZm9ybWF0bywgZXMgaW1wb3J0YW50ZSBtZW5jaW9uYXIgcXVlIGxhcyBwZWzDrWN1bGFzIGVzdMOhbiBlbnVtZXJhZGFzIGRlIGFjdWVyZG8gYWwgb3JkZW4gY3Jvbm9sw7NnaWNvIGRlIGVzdHJlbm8gcG9yIGxvIHRhbnRvIGVsIG7Dum1lcm8gMSBoYWNlIHJlZmVyZW5jaWEgYSAiRXBpc29kaW8gNCAtIEEgTmV3IEhvcGUiIHkgbm8gYSAiRXBpc29kaW8gMSAtIFRoZSBQaGFudG9tIE1lbmFjZSIgKE9idmlhbWVudGUgZXN0byBubyBzZXJpYSBzdGFyIHdhcnMgc2luIGVsIGNvbmZsaWN0byBkZWwgb3JkZW4gZGUgbGFzIHBlbMOtY3VsYXMpDQoNClBlcmZlY3RvIGFob3JhIHNvbG8gcXVlZGEgY29udmVydGlyIHRvZG8gZW4gdW4gZGF0YWZyYW1lIGRlIHZlY3RvcmVzLCB5YSBxdWUgYWN0dWFsbWVudGUgc29uIGRhdGFmcmFtZXMgZGUgbGlzdGFzDQoNCmBgYHtyfQ0KDQpwZXJzb25hamVzX3RpIDwtICBwZXJzb25hamVzX2RpICAlPiUgbWFwX2Rmcih1bmxpc3QpDQoNCmVzcGVjaWVfdGkgPC0gIGVzcGVjaWVfZGkgJT4lIG1hcF9kZnIodW5saXN0KQ0KDQpwbGFuZXRhX3RpIDwtICBwbGFuZXRhX2RpICU+JSBtYXBfZGZyKHVubGlzdCkNCg0KDQpwZXJzb25hamVzX3RpICU+JSBoZWFkKCkNCmVzcGVjaWVfdGkgJT4lIGhlYWQoKQ0KcGxhbmV0YV90aSAlPiUgaGVhZCgpDQpgYGANCg0KQWhvcmEgZXMgbW9tZW50byBkZSBkYXJsZSB1biBmb3JtYXRvIGhvbW9nw6luZW8gYSBsb3MgTkFzICB5YSBxdWUgdGllbmVuIGxhIGZvcm1hIGRlICJuL2EiICJ1bmtub3duIiBvIHNpbXBsZW1lbnRlIGVzIHVuIGNhcmFjdGVyIHZhY8Otbw0KDQpgYGB7cn0NCnBlcnNvbmFqZXNfdGlbcGVyc29uYWplc190aSA9PSAibi9hInxwZXJzb25hamVzX3RpID09InVua25vd24ifHBlcnNvbmFqZXNfdGkgPT0iIl0gPC0gTkENCmVzcGVjaWVfdGlbZXNwZWNpZV90aSA9PSAibi9hInxlc3BlY2llX3RpID09InVua25vd24ifGVzcGVjaWVfdGkgPT0iIl0gPC0gTkENCnBsYW5ldGFfdGlbcGxhbmV0YV90aSA9PSAibi9hInxwbGFuZXRhX3RpID09InVua25vd24ifHBsYW5ldGFfdGkgPT0iIl0gPC0gTkENCg0KYGBgDQoNCg0KWSBhaG9yYSBlbCBwYXNvIGZpbmFsISBjb252ZXJ0aXIgbGFzIHZhcmlhYmxlcyBxdWUgaGFzdGEgZXN0ZSBtb21lbnRvIGVyYW4gZGVsIHRpcG8gY2FyYWN0ZXIgYSBpbnRlZ2VyDQoNCg0KYGBge3J9DQpwbGFuZXRhX3RpW2MoMiwzLDQsOCw5LDE1KV0gPC0gbGFwcGx5KHBsYW5ldGFfdGlbYygyLDMsNCw4LDksMTUpXSwgYXMuaW50ZWdlcikNCg0KZXNwZWNpZV90aVtjKDQsOCwxNildIDwtIGxhcHBseShlc3BlY2llX3RpW2MoNCw4LDE2KV0sIGFzLmludGVnZXIpDQoNCnBlcnNvbmFqZXNfdGlbYygyLDMsMTcpXSA8LSBsYXBwbHkocGVyc29uYWplc190aVtjKDIsMywxNyldLCBhcy5pbnRlZ2VyKQ0KYGBgDQoNCg0KWSBlc3RlIGVzIGVsIHJlc3VsdGFkbw0KDQoNCmBgYHtyfQ0KcGVyc29uYWplc190aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKQ0KZXNwZWNpZV90aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKQ0KcGxhbmV0YV90aSAlPiUgaGVhZCgpICU+JSBrbml0cjo6a2FibGUoKQ0KYGBgDQoNCg0KIyMgQ29uY2x1c2lvbmVzDQoNClNpbiBkdWRhIGFsZ3VuYSBsYSBpbmdlbmllcsOtYSBkZSBkYXRvcyAoZGF0YSBlbmdpbmVlcmluZykgZGVudHJvIGRlIGxhIGNpZW5jaWEgZGUgZGF0b3MgZXMgbG8gbWVub3MgImdsYW11cm9zbyIgc2luIGVtYmFyZ28gZXMgZWwgcGFzbyBtYXMgaW1wb3J0YW50ZSB5YSBxdWUgc2luIGRhdG9zIHF1ZSBhbmFsaXphciwgZGUgbmFkYSBzaXJ2ZSBlbCB1bHRpbW8gYWxnb3JpdG1vIGRlIGRlZXBsZWFybmluZywgbG9zIGRhdG9zIGVuIGxhIHZpZGEgcmVhbCBubyBzZSBlbmN1ZW50cmFuIGVzdHJ1Y3R1cmFkb3Mgc2luIGVtYmFyZ28gYXF1w60gc2UgbW9zdHJhcm9uIGZvcm1hcyBwYXJhIGxvZ3JhciBlc3RvLCBpbmljaWFuZG8gcG9yIHVuYSBjb25zdWx0YSBkZSB1bmEgQVBJLCBtb2RpZmljYW5kbyBkb2N1bWVudG9zIEpzb24gaGFzdGEgcGFzYW5kbyBwb3IgZXhwcmVzaW9uZXMgcmVndWxhcmVzIHkgbWFuZWpvcyBkZSBOQXMgaW5jbHVzbyBpbnRlbnRhciBleHBsaWNhciBlbCBjb25mbGljdG8gZGVsIG7Dum1lcm8gZW4gbGFzIHBlbMOtY3VsYXMgZGUgc3RhciB3YXJzLg0KDQoNClRlIGludml0byBhIHF1ZSBwb3IgdHUgY3VlbnRhIGhhZ2FzIGxhIHNvbGljaXR1ZCAgYSAqZmlsbXMqLCAqc3RhcnNoaXBzKiwgKnZlaGljbGVzKi4gRGUgdGFsIG1hbmVyYSBxdWUgdmVhcyBsbyBmw6FjaWwgcXVlIGVzIQ0KDQoNCg0KRnVlbnRlczoNCg0KaHR0cHM6Ly93d3cudHV0b3JpYWxzcG9pbnQuY29tL3Ivcl9qc29uX2ZpbGVzLmh0bQ0KaHR0cHM6Ly9naXRodWIuY29tL0lyb25ob2xkcy9yd2Fycw0K</div>
 
 
 
